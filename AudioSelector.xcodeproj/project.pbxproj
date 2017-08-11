@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		649351FB1F3E2AC2000AAEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649351FA1F3E2AC2000AAEA4 /* AppDelegate.swift */; };
-		649351FD1F3E2AC2000AAEA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649351FC1F3E2AC2000AAEA4 /* ViewController.swift */; };
-		649351FF1F3E2AC2000AAEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */; };
 		649352021F3E2AC2000AAEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 649352001F3E2AC2000AAEA4 /* Main.storyboard */; };
 		6493520D1F3E2AC2000AAEA4 /* AudioSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493520C1F3E2AC2000AAEA4 /* AudioSelectorTests.swift */; };
+		649352251F3E3E3D000AAEA4 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649352241F3E3E3D000AAEA4 /* EventMonitor.swift */; };
+		649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649352281F3E4294000AAEA4 /* AppDelegate.swift */; };
+		6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */; };
+		6493522F1F3E4CB5000AAEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,14 +27,17 @@
 
 /* Begin PBXFileReference section */
 		649351F71F3E2AC2000AAEA4 /* AudioSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		649351FA1F3E2AC2000AAEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		649351FC1F3E2AC2000AAEA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		649352011F3E2AC2000AAEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		649352031F3E2AC2000AAEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		649352081F3E2AC2000AAEA4 /* AudioSelectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSelectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6493520C1F3E2AC2000AAEA4 /* AudioSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSelectorTests.swift; sourceTree = "<group>"; };
 		6493520E1F3E2AC2000AAEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		649352241F3E3E3D000AAEA4 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		649352281F3E4294000AAEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
+		649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIcon.pxm; path = Resources/MenuIcon.pxm; sourceTree = "<group>"; };
+		649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIconSmall.pxm; path = Resources/MenuIconSmall.pxm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +79,13 @@
 		649351F91F3E2AC2000AAEA4 /* AudioSelector */ = {
 			isa = PBXGroup;
 			children = (
-				649351FA1F3E2AC2000AAEA4 /* AppDelegate.swift */,
-				649351FC1F3E2AC2000AAEA4 /* ViewController.swift */,
-				649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */,
-				649352001F3E2AC2000AAEA4 /* Main.storyboard */,
+				649352281F3E4294000AAEA4 /* AppDelegate.swift */,
+				6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */,
+				649352241F3E3E3D000AAEA4 /* EventMonitor.swift */,
 				649352031F3E2AC2000AAEA4 /* Info.plist */,
+				649352001F3E2AC2000AAEA4 /* Main.storyboard */,
+				649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */,
+				649352171F3E2B0F000AAEA4 /* Resources */,
 			);
 			path = AudioSelector;
 			sourceTree = "<group>";
@@ -91,6 +97,15 @@
 				6493520E1F3E2AC2000AAEA4 /* Info.plist */,
 			);
 			path = AudioSelectorTests;
+			sourceTree = "<group>";
+		};
+		649352171F3E2B0F000AAEA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */,
+				649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649351FF1F3E2AC2000AAEA4 /* Assets.xcassets in Resources */,
+				6493522F1F3E4CB5000AAEA4 /* Assets.xcassets in Resources */,
 				649352021F3E2AC2000AAEA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,8 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649351FD1F3E2AC2000AAEA4 /* ViewController.swift in Sources */,
-				649351FB1F3E2AC2000AAEA4 /* AppDelegate.swift in Sources */,
+				649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */,
+				6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */,
+				649352251F3E3E3D000AAEA4 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -317,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -327,7 +343,6 @@
 		649352121F3E2AC2000AAEA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
@@ -341,7 +356,6 @@
 		649352131F3E2AC2000AAEA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
@@ -403,6 +417,7 @@
 				649352131F3E2AC2000AAEA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		649352141F3E2AC2000AAEA4 /* Build configuration list for PBXNativeTarget "AudioSelectorTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +426,7 @@
 				649352161F3E2AC2000AAEA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
