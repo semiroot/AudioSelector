@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		649352021F3E2AC2000AAEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 649352001F3E2AC2000AAEA4 /* Main.storyboard */; };
 		6493520D1F3E2AC2000AAEA4 /* AudioSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493520C1F3E2AC2000AAEA4 /* AudioSelectorTests.swift */; };
-		649352251F3E3E3D000AAEA4 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649352241F3E3E3D000AAEA4 /* EventMonitor.swift */; };
 		649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649352281F3E4294000AAEA4 /* AppDelegate.swift */; };
 		6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */; };
 		6493522F1F3E4CB5000AAEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */; };
+		64BCCA511F3F0E4000BE7F9E /* SelectorPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,11 +33,11 @@
 		649352081F3E2AC2000AAEA4 /* AudioSelectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSelectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6493520C1F3E2AC2000AAEA4 /* AudioSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSelectorTests.swift; sourceTree = "<group>"; };
 		6493520E1F3E2AC2000AAEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		649352241F3E3E3D000AAEA4 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		649352281F3E4294000AAEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIcon.pxm; path = Resources/MenuIcon.pxm; sourceTree = "<group>"; };
 		649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIconSmall.pxm; path = Resources/MenuIconSmall.pxm; sourceTree = "<group>"; };
+		64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorPopover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			children = (
 				649352281F3E4294000AAEA4 /* AppDelegate.swift */,
 				6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */,
-				649352241F3E3E3D000AAEA4 /* EventMonitor.swift */,
+				64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */,
 				649352031F3E2AC2000AAEA4 /* Info.plist */,
 				649352001F3E2AC2000AAEA4 /* Main.storyboard */,
 				649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */,
@@ -212,9 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BCCA511F3F0E4000BE7F9E /* SelectorPopover.swift in Sources */,
 				649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */,
 				6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */,
-				649352251F3E3E3D000AAEA4 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

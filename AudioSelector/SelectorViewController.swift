@@ -19,9 +19,4 @@ class SelectorViewController: NSViewController {
             // Update the view, if already loaded.
         }
     }
-    
-    @IBAction func closeButtonAction(_ sender: NSButton) {
-        NSApp.terminate(self)
-    }
-    
 }
