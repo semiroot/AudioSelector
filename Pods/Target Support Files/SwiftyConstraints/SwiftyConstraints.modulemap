@@ -1,0 +1,6 @@
+framework module SwiftyConstraints {
+  umbrella header "SwiftyConstraints-umbrella.h"
+
+  export *
+  module * { export * }
+}

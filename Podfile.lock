@@ -1,0 +1,31 @@
+PODS:
+  - AMCoreAudio (3.1.1)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
+  - SwiftyConstraints (0.1.0)
+
+DEPENDENCIES:
+  - AMCoreAudio (~> 3.1)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
+  - SwiftyConstraints (from `https://github.com/semiroot/SwiftyConstraints`)
+
+EXTERNAL SOURCES:
+  SwiftyConstraints:
+    :git: https://github.com/semiroot/SwiftyConstraints
+
+CHECKOUT OPTIONS:
+  SwiftyConstraints:
+    :commit: efd3b23818b732580060cd781572617aa114e452
+    :git: https://github.com/semiroot/SwiftyConstraints
+
+SPEC CHECKSUMS:
+  AMCoreAudio: 4afddc2b053033477dd3bad10fe4d65ce7be4426
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SwiftyConstraints: db70cd0e98d5310e38685278e701eb85c1a1d44c
+
+PODFILE CHECKSUM: ad25d849ad9fcf6dda45f7f45b777d76c4294835
+
+COCOAPODS: 1.2.1
