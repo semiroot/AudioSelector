@@ -13,16 +13,20 @@ class SelectorPopover: NSPopover {
     fileprivate var globalMonitor: AnyObject?
     
     override func show(relativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge) {
+        Swift.print("subscribeMonitor by show shown=\(self.isShown) monitor=\(self.globalMonitor != nil)")
+        Swift.print("positioningRect=\(positioningRect) positioningView=\(positioningView) preferredEdge=\(preferredEdge)")
         super.show(relativeTo: positioningRect, of: positioningView, preferredEdge: preferredEdge)
         self.subscribeMonitor()
     }
     
     override func performClose(_ sender: Any?) {
+        Swift.print("unsubscribeMonitor by performClose shown=\(self.isShown) monitor=\(self.globalMonitor != nil)")
         super.performClose(sender)
         self.unsubscribeMonitor()
     }
     
     deinit {
+        Swift.print("unsubscribeMonitor by deinit shown=\(self.isShown) monitor=\(self.globalMonitor != nil)")
         self.unsubscribeMonitor()
     }
     
@@ -41,6 +45,7 @@ class SelectorPopover: NSPopover {
     }
     
     fileprivate func handleMonitoredEvent(_ event: NSEvent?) {
+        Swift.print("handleMonitoredEvent with shown=\(self.isShown) monitor=\(self.globalMonitor != nil)")
         if self.isShown {
             self.performClose(self)
         }

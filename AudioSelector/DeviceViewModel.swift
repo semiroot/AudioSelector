@@ -12,29 +12,15 @@ import AMCoreAudio
 
 class DeviceViewModel {
     
-    private let device: AudioDevice
+    var interfaceActionRequests: Observable<InterfaceAction>
+    var interfaceActionPublish = PublishSubject<InterfaceAction>()
     
-    init(_ device: AudioDevice) {
-        self.device = device
-        update()
-    }
-    
-    func update() {
-        let input = AudioDevice.defaultInputDevice() == self.device
-        if isMainInput.value != input {
-            isMainInput.value = input
-        }
-        
-        let output = AudioDevice.defaultOutputDevice() == self.device
-        if isMainOutput.value != output {
-            isMainOutput.value = output
-        }
-        
-        let system = AudioDevice.defaultSystemOutputDevice() == self.device
-        if isSystemOutput.value != system {
-            isSystemOutput.value = system
-        }
-    }
+    var isInput = Variable(false)
+    var isOutput = Variable(false)
+    var isSystem = Variable(false)
+    var isDefaultInput = Variable(false)
+    var isDefaultOutput = Variable(false)
+    var isDefaultSystem = Variable(false)
     
     var name: String {
         return device.name
@@ -48,19 +34,69 @@ class DeviceViewModel {
         return device.channels(direction: .playback) > 0
     }
     
-    var isMainInput = Variable(false)
-    var isMainOutput = Variable(false)
-    var isSystemOutput = Variable(false)
+    let device: AudioDevice
     
-    func setAsInputDevice() {
-        self.device.setAsDefaultInputDevice()
+    init(_ device: AudioDevice) {
+        interfaceActionRequests = interfaceActionPublish
+        self.device = device
+        update()
     }
     
-    func setAsOutputDevice() {
-        self.device.setAsDefaultOutputDevice()
+    func update() {
+        let input = AudioDevice.defaultInputDevice() == self.device
+        if isInput.value != input {
+            isInput.value = input
+        }
+        
+        let output = AudioDevice.defaultOutputDevice() == self.device
+        if isOutput.value != output {
+            isOutput.value = output
+        }
+        
+        let system = AudioDevice.defaultSystemOutputDevice() == self.device
+        if isSystem.value != system {
+            isSystem.value = system
+        }
+        
+        let pref = Preferences.standard
+        
+        let defaultInput = pref.defaultInput == self.device.name
+        if isDefaultInput.value != defaultInput {
+            isDefaultInput.value = defaultInput
+        }
+        
+        let defaultOutput = pref.defaultOutput == self.device.name
+        if isDefaultOutput.value != defaultOutput {
+            isDefaultOutput.value = defaultOutput
+        }
+        
+        let defaultSystem = pref.defaultSystem == self.device.name
+        if isDefaultSystem.value != defaultSystem {
+            isDefaultSystem.value = defaultSystem
+        }
     }
     
-    func setAsSystemDevice() {
-        self.device.setAsDefaultSystemDevice()
+    func setAsInput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsInput)
+    }
+    
+    func setAsOutput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsOutput)
+    }
+    
+    func setAsSystem() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsSystem)
+    }
+    
+    func setAsDefaultInput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultInput)
+    }
+    
+    func setAsDefaultOutput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultOutput)
+    }
+    
+    func setAsDefaultSystem() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultSystem)
     }
 }

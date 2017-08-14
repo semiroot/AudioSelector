@@ -8,15 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		64175AC11F3F1DAC008F89A1 /* SelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */; };
-		645C30F91F3F2E7300369B45 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30F81F3F2E7300369B45 /* Label.swift */; };
+		645C30F91F3F2E7300369B45 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30F81F3F2E7300369B45 /* LabelView.swift */; };
 		645C30FB1F3F38F000369B45 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FA1F3F38F000369B45 /* CircleView.swift */; };
-		645C30FD1F3F3CDE00369B45 /* DeviceSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FC1F3F3CDE00369B45 /* DeviceSelectorControl.swift */; };
+		645C30FD1F3F3CDE00369B45 /* DeviceSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */; };
 		645C30FF1F3F402200369B45 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FE1F3F402200369B45 /* IndicatorView.swift */; };
 		649352021F3E2AC2000AAEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 649352001F3E2AC2000AAEA4 /* Main.storyboard */; };
 		6493520D1F3E2AC2000AAEA4 /* AudioSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493520C1F3E2AC2000AAEA4 /* AudioSelectorTests.swift */; };
 		649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649352281F3E4294000AAEA4 /* AppDelegate.swift */; };
 		6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */; };
 		6493522F1F3E4CB5000AAEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */; };
+		64BBA5A51F40646F00EBCC50 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A41F40646F00EBCC50 /* TitleView.swift */; };
+		64BBA5A71F406C9800EBCC50 /* RadioControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A61F406C9800EBCC50 /* RadioControl.swift */; };
+		64BBA5A91F4071D400EBCC50 /* RemarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A81F4071D400EBCC50 /* RemarkView.swift */; };
+		64BBA5AB1F408E2F00EBCC50 /* InterfaceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */; };
+		64BBA5AD1F409A0300EBCC50 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5AC1F409A0300EBCC50 /* Preferences.swift */; };
 		64BCCA511F3F0E4000BE7F9E /* SelectorPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */; };
 		64BCCA541F3F1B5300BE7F9E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 64BCCA531F3F1B5300BE7F9E /* Podfile */; };
 		64FC29AC1F3F72A3001D96E7 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */; };
@@ -35,9 +40,9 @@
 
 /* Begin PBXFileReference section */
 		64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewModel.swift; sourceTree = "<group>"; };
-		645C30F81F3F2E7300369B45 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		645C30F81F3F2E7300369B45 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		645C30FA1F3F38F000369B45 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		645C30FC1F3F3CDE00369B45 /* DeviceSelectorControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectorControl.swift; sourceTree = "<group>"; };
+		645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectorView.swift; sourceTree = "<group>"; };
 		645C30FE1F3F402200369B45 /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		649351F71F3E2AC2000AAEA4 /* AudioSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +55,11 @@
 		6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIcon.pxm; path = Resources/MenuIcon.pxm; sourceTree = "<group>"; };
 		649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIconSmall.pxm; path = Resources/MenuIconSmall.pxm; sourceTree = "<group>"; };
+		64BBA5A41F40646F00EBCC50 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		64BBA5A61F406C9800EBCC50 /* RadioControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioControl.swift; sourceTree = "<group>"; };
+		64BBA5A81F4071D400EBCC50 /* RemarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemarkView.swift; sourceTree = "<group>"; };
+		64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceRequest.swift; sourceTree = "<group>"; };
+		64BBA5AC1F409A0300EBCC50 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorPopover.swift; sourceTree = "<group>"; };
 		64BCCA531F3F1B5300BE7F9E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
@@ -110,19 +120,17 @@
 		649351F91F3E2AC2000AAEA4 /* AudioSelector */ = {
 			isa = PBXGroup;
 			children = (
+				64E54F271F423585008AF460 /* Logic */,
+				64E54F261F4234FC008AF460 /* ViewModels */,
+				64E54F251F4234D3008AF460 /* Windows */,
+				64E54F241F4234AF008AF460 /* ViewControllers */,
+				64E54F231F42347D008AF460 /* ControlViews */,
+				64E54F221F42346D008AF460 /* Views */,
 				649352281F3E4294000AAEA4 /* AppDelegate.swift */,
-				64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */,
-				6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */,
-				64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */,
-				64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */,
-				645C30FC1F3F3CDE00369B45 /* DeviceSelectorControl.swift */,
 				649352031F3E2AC2000AAEA4 /* Info.plist */,
 				649352001F3E2AC2000AAEA4 /* Main.storyboard */,
 				649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */,
 				649352171F3E2B0F000AAEA4 /* Resources */,
-				645C30F81F3F2E7300369B45 /* Label.swift */,
-				645C30FA1F3F38F000369B45 /* CircleView.swift */,
-				645C30FE1F3F402200369B45 /* IndicatorView.swift */,
 			);
 			path = AudioSelector;
 			sourceTree = "<group>";
@@ -151,6 +159,61 @@
 				64BCCA531F3F1B5300BE7F9E /* Podfile */,
 			);
 			name = Cocoapods;
+			sourceTree = "<group>";
+		};
+		64E54F221F42346D008AF460 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */,
+				64BBA5A41F40646F00EBCC50 /* TitleView.swift */,
+				64BBA5A81F4071D400EBCC50 /* RemarkView.swift */,
+				645C30F81F3F2E7300369B45 /* LabelView.swift */,
+				645C30FE1F3F402200369B45 /* IndicatorView.swift */,
+				645C30FA1F3F38F000369B45 /* CircleView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		64E54F231F42347D008AF460 /* ControlViews */ = {
+			isa = PBXGroup;
+			children = (
+				64BBA5A61F406C9800EBCC50 /* RadioControl.swift */,
+			);
+			name = ControlViews;
+			sourceTree = "<group>";
+		};
+		64E54F241F4234AF008AF460 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		64E54F251F4234D3008AF460 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		64E54F261F4234FC008AF460 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */,
+				64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		64E54F271F423585008AF460 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				64BBA5AC1F409A0300EBCC50 /* Preferences.swift */,
+				64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */,
+			);
+			name = Logic;
 			sourceTree = "<group>";
 		};
 		AA6FBFBC1295BC3868616017 /* Frameworks */ = {
@@ -317,15 +380,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BBA5A91F4071D400EBCC50 /* RemarkView.swift in Sources */,
 				645C30FB1F3F38F000369B45 /* CircleView.swift in Sources */,
+				64BBA5AB1F408E2F00EBCC50 /* InterfaceRequest.swift in Sources */,
 				64BCCA511F3F0E4000BE7F9E /* SelectorPopover.swift in Sources */,
+				64BBA5A71F406C9800EBCC50 /* RadioControl.swift in Sources */,
 				649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */,
-				645C30FD1F3F3CDE00369B45 /* DeviceSelectorControl.swift in Sources */,
+				645C30FD1F3F3CDE00369B45 /* DeviceSelectorView.swift in Sources */,
 				6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */,
-				645C30F91F3F2E7300369B45 /* Label.swift in Sources */,
+				64BBA5AD1F409A0300EBCC50 /* Preferences.swift in Sources */,
+				645C30F91F3F2E7300369B45 /* LabelView.swift in Sources */,
 				64FC29AC1F3F72A3001D96E7 /* DeviceViewModel.swift in Sources */,
 				645C30FF1F3F402200369B45 /* IndicatorView.swift in Sources */,
 				64175AC11F3F1DAC008F89A1 /* SelectorViewModel.swift in Sources */,
+				64BBA5A51F40646F00EBCC50 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

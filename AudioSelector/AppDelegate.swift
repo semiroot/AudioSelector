@@ -36,4 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
     }
+    
+    func closeApp() {
+        NSApp.terminate(self)
+    }
 }

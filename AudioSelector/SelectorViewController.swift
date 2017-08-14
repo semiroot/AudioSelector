@@ -19,8 +19,10 @@ class SelectorViewController: NSViewController {
     var viewContainerOutput = NSView()
     var viewContainerSystem = NSView()
     
-    var disposableViews = [DeviceSelectorControl]()
+    var disposableViews = [DeviceSelectorView]()
     var disposeBag = DisposeBag()
+    
+    var buttonClose = NSButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,6 @@ class SelectorViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        for view in disposableViews {
-            view.sizeToFit()
-        }
     }
     
     override func viewDidDisappear() {
@@ -53,19 +52,34 @@ class SelectorViewController: NSViewController {
     func createLayout() {
         let constraints = self.view.swiftyConstraints()
         
+        buttonClose.bezelStyle = NSRoundedBezelStyle
+        buttonClose.title = "Quit"
+        buttonClose.target = self
+        buttonClose.action = #selector(SelectorViewController.doCloseApp)
+        
         constraints
-            .attach(Label.create("Input devices:"))
-                .height(20).left(20).top(20).right(20).stackTop()
+            .attach(RemarkView().withText("Active"))
+                .height(10).left(25).top(30)
+            .attach(RemarkView().withText("Default"))
+                .height(10).left(55).top(30)
+            
+            .attach(TitleView().withText("Main in"))
+                .height(14).right(20).top(30).stackTop()
             .attach(viewContainerInput)
                 .left(20).top().right(20).stackTop()
-            .attach(Label.create("Output devices:"))
-                .height(20).left(20).top(20).right(20).stackTop()
+            
+            .attach(TitleView().withText("Main out"))
+                .right(20).top(5).stackTop()
             .attach(viewContainerOutput)
                 .left(20).top().right(20).stackTop()
-            .attach(Label.create("System output devices:"))
-                .height(20).left(20).top(20).right(20).stackTop()
+            
+            .attach(TitleView().withText("System out"))
+                .height(14).right(20).top(5).stackTop()
             .attach(viewContainerSystem)
-                .left(20).top().right(20).stackTop().bottom(20)
+                .left(20).top().right(20).stackTop()
+            
+            .attach(buttonClose)
+                .top(20).right(20).bottom(20)
         
     }
     
@@ -78,18 +92,18 @@ class SelectorViewController: NSViewController {
         
         for deviceViewModel in viewModel.devices.value {
             if deviceViewModel.isInputDevice {
-                let inputControl = DeviceSelectorControl().setup(deviceViewModel, .input)
+                let inputControl = DeviceSelectorView().setup(deviceViewModel, .input)
                 disposableViews.append(inputControl)
-                inputConstraints.attach(inputControl).left().right().top(5).stackTop()
+                inputConstraints.attach(inputControl).left().right(20).top(5).stackTop()
             }
             if deviceViewModel.isOutputDevice {
-                let outputControl = DeviceSelectorControl().setup(deviceViewModel, .output)
+                let outputControl = DeviceSelectorView().setup(deviceViewModel, .output)
                 disposableViews.append(outputControl)
-                outputConstraints.attach(outputControl).left().right().top(5).stackTop()
+                outputConstraints.attach(outputControl).left().right(20).top(5).stackTop()
                 
-                let systemControl = DeviceSelectorControl().setup(deviceViewModel, .system)
+                let systemControl = DeviceSelectorView().setup(deviceViewModel, .system)
                 disposableViews.append(systemControl)
-                systemConstraints.attach(systemControl).left().right().top(5).stackTop()
+                systemConstraints.attach(systemControl).left().right(20).top(5).stackTop()
             }
         }
         inputConstraints.bottom()
@@ -101,7 +115,7 @@ class SelectorViewController: NSViewController {
         for view in disposableViews {
             view.removeFromSuperview()
         }
-        disposableViews = [DeviceSelectorControl]()
+        disposableViews = [DeviceSelectorView]()
     }
     
     func subscribeToViewModel() {
@@ -114,5 +128,10 @@ class SelectorViewController: NSViewController {
     
     func unsubscribeFromViewModel() {
         disposeBag = DisposeBag()
+    }
+    
+    func doCloseApp(_ sender: AnyObject) {
+        guard let delegate = NSApp.delegate as? AppDelegate else { return }
+        delegate.closeApp()
     }
 }
