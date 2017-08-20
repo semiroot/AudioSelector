@@ -121,9 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				64E54F271F423585008AF460 /* Logic */,
-				64E54F261F4234FC008AF460 /* ViewModels */,
 				64E54F251F4234D3008AF460 /* Windows */,
 				64E54F241F4234AF008AF460 /* ViewControllers */,
+				64E54F261F4234FC008AF460 /* ViewModels */,
 				64E54F231F42347D008AF460 /* ControlViews */,
 				64E54F221F42346D008AF460 /* Views */,
 				649352281F3E4294000AAEA4 /* AppDelegate.swift */,
@@ -164,12 +164,8 @@
 		64E54F221F42346D008AF460 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64E54F281F4236B6008AF460 /* Helpers */,
 				645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */,
-				64BBA5A41F40646F00EBCC50 /* TitleView.swift */,
-				64BBA5A81F4071D400EBCC50 /* RemarkView.swift */,
-				645C30F81F3F2E7300369B45 /* LabelView.swift */,
-				645C30FE1F3F402200369B45 /* IndicatorView.swift */,
-				645C30FA1F3F38F000369B45 /* CircleView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -214,6 +210,18 @@
 				64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */,
 			);
 			name = Logic;
+			sourceTree = "<group>";
+		};
+		64E54F281F4236B6008AF460 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				64BBA5A41F40646F00EBCC50 /* TitleView.swift */,
+				64BBA5A81F4071D400EBCC50 /* RemarkView.swift */,
+				645C30F81F3F2E7300369B45 /* LabelView.swift */,
+				645C30FE1F3F402200369B45 /* IndicatorView.swift */,
+				645C30FA1F3F38F000369B45 /* CircleView.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		AA6FBFBC1295BC3868616017 /* Frameworks */ = {

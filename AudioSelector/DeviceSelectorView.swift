@@ -25,6 +25,7 @@ class DeviceSelectorView: NSView {
     
     private let activeControl = RadioControl()
     private let defaultControl = RadioControl()
+    private let volumeControl = NSSlider()
     
     private var disposeBag = DisposeBag()
     
@@ -44,7 +45,8 @@ class DeviceSelectorView: NSView {
         swiftyConstraints()
             .attach(activeControl).height(16).width(16).left().top().bottom().stackLeft()
             .attach(defaultControl).height(16).width(16).left(10).top().bottom().stackLeft()
-            .attach(LabelView().withText(viewModel.name)).height(20).left(10).top().right()
+            .attach(LabelView().withText(viewModel.name)).height(20).left(10).top().stackLeft()
+            .attach(volumeControl).middle().width(120).left(20).top().right()
         
         subscribeToViewModel()
         
@@ -62,20 +64,31 @@ class DeviceSelectorView: NSView {
         defaultControl.action = #selector(DeviceSelectorView.selectDefault)
         defaultControl.sendAction(on: .leftMouseUp)
         
+        volumeControl.target = self
+        volumeControl.action = #selector(DeviceSelectorView.changeVolume(_:))
+        
         var indicatorAction: Variable<Bool>?
         var indicatorDefault: Variable<Bool>?
+        var indicatorVolume: Variable<Float32>?
+        var indicatorVolumeActive: Variable<Bool>?
         
         if selectorType == .input {
             indicatorAction = viewModel.isInput
             indicatorDefault = viewModel.isDefaultInput
+            indicatorVolume = viewModel.volumeIn
+            indicatorVolumeActive = viewModel.canChangeVolumeIn
         }
         if selectorType == .output {
             indicatorAction = viewModel.isOutput
             indicatorDefault = viewModel.isDefaultOutput
+            indicatorVolume = viewModel.volumeOut
+            indicatorVolumeActive = viewModel.canChangeVolumeOut
         }
         if selectorType == .system {
             indicatorAction = viewModel.isSystem
             indicatorDefault = viewModel.isDefaultSystem
+            indicatorVolume = viewModel.volumeOut
+            indicatorVolumeActive = viewModel.canChangeVolumeOut
         }
         
         indicatorAction?.asObservable().subscribe(
@@ -87,6 +100,18 @@ class DeviceSelectorView: NSView {
         indicatorDefault?.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.defaultControl.isActive = value
+            }
+        ).addDisposableTo(disposeBag)
+        
+        indicatorVolume?.asObservable().subscribe(
+            onNext: { [weak self] value in
+                self?.volumeControl.floatValue = value as Float
+            }
+        ).addDisposableTo(disposeBag)
+        
+        indicatorVolumeActive?.asObservable().subscribe(
+            onNext: { [weak self] value in
+                self?.volumeControl.isEnabled = value
             }
         ).addDisposableTo(disposeBag)
     }
@@ -116,6 +141,20 @@ class DeviceSelectorView: NSView {
         }
         if selectorType == .system {
             viewModel.setAsDefaultSystem()
+        }
+    }
+    
+    func changeVolume(_ sender: NSSlider) {
+        guard let viewModel = viewModel else { return }
+        
+        if selectorType == .input {
+            viewModel.setVolumeIn(sender.floatValue as Float32)
+        }
+        if selectorType == .output {
+            viewModel.setVolumeOut(sender.floatValue as Float32)
+        }
+        if selectorType == .system {
+            viewModel.setVolumeOut(sender.floatValue as Float32)
         }
     }
     

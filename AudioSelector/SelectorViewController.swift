@@ -94,16 +94,16 @@ class SelectorViewController: NSViewController {
             if deviceViewModel.isInputDevice {
                 let inputControl = DeviceSelectorView().setup(deviceViewModel, .input)
                 disposableViews.append(inputControl)
-                inputConstraints.attach(inputControl).left().right(20).top(5).stackTop()
+                inputConstraints.attach(inputControl).left().right().top(5).stackTop()
             }
             if deviceViewModel.isOutputDevice {
                 let outputControl = DeviceSelectorView().setup(deviceViewModel, .output)
                 disposableViews.append(outputControl)
-                outputConstraints.attach(outputControl).left().right(20).top(5).stackTop()
+                outputConstraints.attach(outputControl).left().right().top(5).stackTop()
                 
                 let systemControl = DeviceSelectorView().setup(deviceViewModel, .system)
                 disposableViews.append(systemControl)
-                systemConstraints.attach(systemControl).left().right(20).top(5).stackTop()
+                systemConstraints.attach(systemControl).left().right().top(5).stackTop()
             }
         }
         inputConstraints.bottom()

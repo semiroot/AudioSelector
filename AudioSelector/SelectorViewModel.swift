@@ -154,6 +154,16 @@ class SelectorViewModel: EventSubscriber {
             Preferences.standard.defaultSystem = target.device.name
             Preferences.standard.save()
             break
+        case .setVolumeIn(let volume):
+            if target.device.canSetVirtualMasterVolume(direction: .recording) {
+                target.device.setVirtualMasterVolume(volume, direction: .recording)
+            }
+            break
+        case .setVolumeOut(let volume):
+            if target.device.canSetVirtualMasterVolume(direction: .playback) {
+                target.device.setVirtualMasterVolume(volume, direction: .playback)
+            }
+            break
         default:
             break
         }

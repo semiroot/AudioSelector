@@ -22,6 +22,11 @@ class DeviceViewModel {
     var isDefaultOutput = Variable(false)
     var isDefaultSystem = Variable(false)
     
+    var volumeIn = Variable<Float32>(0)
+    var volumeOut = Variable<Float32>(0)
+    var canChangeVolumeIn = Variable(false)
+    var canChangeVolumeOut = Variable(false)
+    
     var name: String {
         return device.name
     }
@@ -34,6 +39,7 @@ class DeviceViewModel {
         return device.channels(direction: .playback) > 0
     }
     
+    
     let device: AudioDevice
     
     init(_ device: AudioDevice) {
@@ -43,6 +49,13 @@ class DeviceViewModel {
     }
     
     func update() {
+        
+        volumeIn.value = device.virtualMasterVolume(direction: .recording) ?? 0
+        volumeOut.value = device.virtualMasterVolume(direction: .playback) ?? 0
+        
+        canChangeVolumeIn.value = device.canSetVirtualMasterVolume(direction: .recording)
+        canChangeVolumeOut.value = device.canSetVirtualMasterVolume(direction: .playback)
+        
         let input = AudioDevice.defaultInputDevice() == self.device
         if isInput.value != input {
             isInput.value = input
@@ -74,6 +87,8 @@ class DeviceViewModel {
         if isDefaultSystem.value != defaultSystem {
             isDefaultSystem.value = defaultSystem
         }
+        
+        //volume.value = device.volume
     }
     
     func setAsInput() {
@@ -98,5 +113,13 @@ class DeviceViewModel {
     
     func setAsDefaultSystem() {
         interfaceActionPublish.onNext(InterfaceAction.setAsDefaultSystem)
+    }
+    
+    func setVolumeIn(_ volume: Float32) {
+        interfaceActionPublish.onNext(InterfaceAction.setVolumeIn(volume))
+    }
+    
+    func setVolumeOut(_ volume: Float32) {
+        interfaceActionPublish.onNext(InterfaceAction.setVolumeOut(volume))
     }
 }
