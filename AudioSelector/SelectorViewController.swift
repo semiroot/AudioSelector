@@ -17,8 +17,9 @@ class SelectorViewController: NSViewController {
     let viewContainerInput = NSView()
     let viewContainerOutput = NSView()
     let viewContainerSystem = NSView()
-    let buttonClose = NSButton()
-    let checkboxPassthrough = CheckboxControl()
+    let buttonClose = ButtonControl().withText("Quit")
+    let checkboxPassthrough: CheckboxControl = CheckboxControl()
+    let buttonPassthrough = Control().withText("Pass input to output")
     
     var disposableViews = [DeviceSelectorView]()
     var disposeBag = DisposeBag()
@@ -54,19 +55,20 @@ class SelectorViewController: NSViewController {
     func createLayout() {
         let constraints = self.view.swiftyConstraints()
         
-        buttonClose.bezelStyle = NSButton.BezelStyle.rounded
-        buttonClose.title = "Quit"
         buttonClose.target = self
         buttonClose.action = #selector(SelectorViewController.doCloseApp)
         
         checkboxPassthrough.target = self
         checkboxPassthrough.action = #selector(SelectorViewController.togglePassthrough)
         
+        buttonPassthrough.target = self
+        buttonPassthrough.action = #selector(SelectorViewController.togglePassthrough)
+        
         viewModel.passthroughActive.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.checkboxPassthrough.isActive = value
             }
-            ).disposed(by: disposeBag)
+        ).disposed(by: disposeBag)
         
         constraints
             .attach(RemarkView().withText("Active"))
@@ -89,10 +91,9 @@ class SelectorViewController: NSViewController {
             .attach(viewContainerSystem)
                 .left(20).top().right(20).stackTop()
             
-            
             .attach(checkboxPassthrough)
                 .height(16).width(16).left(20).top(20).stackLeft()
-            .attach(LabelView().withText("Pass input to output"))
+            .attach(buttonPassthrough)
                 .height(16).left(5).top(20)
             
             .attach(buttonClose)

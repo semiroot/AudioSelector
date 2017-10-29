@@ -8,23 +8,9 @@
 
 import Cocoa
 
-class CheckboxControl: NSButton {
+class CheckboxControl: Control {
     
-    convenience init() {
-        self.init(frame: CGRect.zero)
-    }
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    func setup() {
+    override func setup() {
         self.setButtonType(NSButton.ButtonType.switch)
     }
     

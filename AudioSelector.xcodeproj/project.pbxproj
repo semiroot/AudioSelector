@@ -19,6 +19,8 @@
 		6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */; };
 		6493522F1F3E4CB5000AAEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 649351FE1F3E2AC2000AAEA4 /* Assets.xcassets */; };
 		6499DFD31FA62754000A1D9B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499DFD21FA62754000A1D9B /* Logger.swift */; };
+		6499DFD51FA62BD2000A1D9B /* ButtonControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499DFD41FA62BD2000A1D9B /* ButtonControl.swift */; };
+		6499DFD91FA62E23000A1D9B /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499DFD81FA62E23000A1D9B /* Control.swift */; };
 		64BBA5A51F40646F00EBCC50 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A41F40646F00EBCC50 /* TitleView.swift */; };
 		64BBA5A71F406C9800EBCC50 /* RadioControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A61F406C9800EBCC50 /* RadioControl.swift */; };
 		64BBA5A91F4071D400EBCC50 /* RemarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBA5A81F4071D400EBCC50 /* RemarkView.swift */; };
@@ -59,6 +61,8 @@
 		649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIcon.pxm; path = Resources/MenuIcon.pxm; sourceTree = "<group>"; };
 		649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIconSmall.pxm; path = Resources/MenuIconSmall.pxm; sourceTree = "<group>"; };
 		6499DFD21FA62754000A1D9B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Logic/Logger.swift; sourceTree = "<group>"; };
+		6499DFD41FA62BD2000A1D9B /* ButtonControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonControl.swift; sourceTree = "<group>"; };
+		6499DFD81FA62E23000A1D9B /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		64BBA5A41F40646F00EBCC50 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		64BBA5A61F406C9800EBCC50 /* RadioControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioControl.swift; sourceTree = "<group>"; };
 		64BBA5A81F4071D400EBCC50 /* RemarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemarkView.swift; sourceTree = "<group>"; };
@@ -177,8 +181,10 @@
 		64E54F231F42347D008AF460 /* ControlViews */ = {
 			isa = PBXGroup;
 			children = (
-				64BBA5A61F406C9800EBCC50 /* RadioControl.swift */,
+				6499DFD81FA62E23000A1D9B /* Control.swift */,
+				6499DFD41FA62BD2000A1D9B /* ButtonControl.swift */,
 				644094511F49F666005506DC /* CheckboxControl.swift */,
+				64BBA5A61F406C9800EBCC50 /* RadioControl.swift */,
 			);
 			name = ControlViews;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6499DFD51FA62BD2000A1D9B /* ButtonControl.swift in Sources */,
 				64BBA5A91F4071D400EBCC50 /* RemarkView.swift in Sources */,
 				645C30FB1F3F38F000369B45 /* CircleView.swift in Sources */,
 				64BBA5AB1F408E2F00EBCC50 /* InterfaceRequest.swift in Sources */,
@@ -405,6 +412,7 @@
 				649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */,
 				6499DFD31FA62754000A1D9B /* Logger.swift in Sources */,
 				645C30FD1F3F3CDE00369B45 /* DeviceSelectorView.swift in Sources */,
+				6499DFD91FA62E23000A1D9B /* Control.swift in Sources */,
 				6493522B1F3E4358000AAEA4 /* SelectorViewController.swift in Sources */,
 				64BBA5AD1F409A0300EBCC50 /* Preferences.swift in Sources */,
 				645C30F91F3F2E7300369B45 /* LabelView.swift in Sources */,

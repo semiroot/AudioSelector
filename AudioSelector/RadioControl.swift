@@ -8,32 +8,9 @@
 
 import Cocoa
 
-class RadioControl: NSButton {
+class RadioControl: CheckboxControl {
     
-    convenience init() {
-        self.init(frame: CGRect.zero)
-    }
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    func setup() {
+    override func setup() {
         self.setButtonType(NSButton.ButtonType.radio)
-    }
-    
-    public var isActive: Bool {
-        get {
-            return self.integerValue == 1
-        }
-        set {
-            self.integerValue = newValue ? 1 : 0
-        }
     }
 }
