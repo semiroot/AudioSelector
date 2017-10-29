@@ -326,7 +326,7 @@
 		1018EDDA7581606D1D4D321E190FC9AE /* SCView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCView.swift; path = Source/SCView.swift; sourceTree = "<group>"; };
 		108E40712AD12468D899C5E979E4E089 /* SchedulerServices+Emulation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SchedulerServices+Emulation.swift"; path = "RxSwift/Schedulers/SchedulerServices+Emulation.swift"; sourceTree = "<group>"; };
 		114F13407DD1FC3477FC7018DF44F580 /* ScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScheduledItem.swift; path = RxSwift/Schedulers/Internal/ScheduledItem.swift; sourceTree = "<group>"; };
-		12A5DB13C8FEFA9E07FA4CAE2ABA4B6D /* SwiftyConstraints.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyConstraints.modulemap; sourceTree = "<group>"; };
+		12A5DB13C8FEFA9E07FA4CAE2ABA4B6D /* SwiftyConstraints.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyConstraints.modulemap; sourceTree = "<group>"; };
 		13C47E9D5CF3B76C8832707D076819DE /* Scan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scan.swift; path = RxSwift/Observables/Scan.swift; sourceTree = "<group>"; };
 		13C47F2B3368C31E9D2F4B05B8C12F27 /* AMCoreAudio-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMCoreAudio-prefix.pch"; sourceTree = "<group>"; };
 		143FF47B9FA0820A9DBC0D746B97B281 /* Timer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = RxSwift/Observables/Timer.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 		427194BB487F05E2B7F383AD67883768 /* SC+Bottom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SC+Bottom.swift"; path = "Source/SC+Bottom.swift"; sourceTree = "<group>"; };
 		4287A320FFDDE3E927D8D805073F2007 /* AKPinkNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPinkNoiseAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKPinkNoiseAudioUnit.h; sourceTree = "<group>"; };
 		42E03AE2386351888D7AAEFA08B55BAC /* ObservableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservableType.swift; path = RxSwift/ObservableType.swift; sourceTree = "<group>"; };
-		438F211643F45900A19D396C97B89D72 /* Pods_AudioSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AudioSelector.framework; path = "Pods-AudioSelector.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		438F211643F45900A19D396C97B89D72 /* Pods_AudioSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CB662744E6165C96B8B82012DE8976 /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
 		46CA63C126FB69D29E9F4A3BE2E1238E /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		477C37249D857041824B3AB6E66EAEF3 /* AKPannerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPannerAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKPannerAudioUnit.h; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 		5ED0A152448AD5861A5F194B9C992DE2 /* AKAmplitudeTrackerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAmplitudeTrackerAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKAmplitudeTrackerAudioUnit.h; sourceTree = "<group>"; };
 		5F5DF37FC386B3003E2044B871D47FD4 /* BundleInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleInfo.swift; path = AMCoreAudio/BundleInfo.swift; sourceTree = "<group>"; };
 		5F65FA4043D890AFF02B328654081135 /* DispatchQueueConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchQueueConfiguration.swift; path = RxSwift/Schedulers/Internal/DispatchQueueConfiguration.swift; sourceTree = "<group>"; };
-		5FA520D0F77EBF10730DC164F5D0F176 /* RxSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RxSwift.modulemap; sourceTree = "<group>"; };
+		5FA520D0F77EBF10730DC164F5D0F176 /* RxSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RxSwift.modulemap; sourceTree = "<group>"; };
 		602236137A74CF58CF5ADAEE1E2435DE /* String+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Rx.swift"; path = "RxSwift/Extensions/String+Rx.swift"; sourceTree = "<group>"; };
 		603B16D77F35648DF74859BFCAB82502 /* Generate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generate.swift; path = RxSwift/Observables/Generate.swift; sourceTree = "<group>"; };
 		61CE644B8F8877AB89D7E3E6DCFCA1B1 /* SchedulerType+SharedSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SchedulerType+SharedSequence.swift"; path = "RxCocoa/Traits/SharedSequence/SchedulerType+SharedSequence.swift"; sourceTree = "<group>"; };
@@ -474,12 +474,12 @@
 		746264645B8DC29F6174F25BAE2242A1 /* RxCocoa-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxCocoa-prefix.pch"; sourceTree = "<group>"; };
 		74A4C89F3E294A3B43AF98A61E44B21F /* AKFlatFrequencyResponseReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFlatFrequencyResponseReverbAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKFlatFrequencyResponseReverbAudioUnit.h; sourceTree = "<group>"; };
 		7500371D0E0FC95515C752B49478EF85 /* DelegateProxyType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelegateProxyType.swift; path = RxCocoa/Common/DelegateProxyType.swift; sourceTree = "<group>"; };
-		767B302FC1846D44DDDEF76C6A24F91E /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxSwift.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		767B302FC1846D44DDDEF76C6A24F91E /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4DC02582D9B23698BB2D27EB1453B /* Bag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bag.swift; path = Platform/DataStructures/Bag.swift; sourceTree = "<group>"; };
 		778DD46A3FAD7C051790C7F490DF59BE /* TPCircularBuffer+Unit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TPCircularBuffer+Unit.h"; path = "macOS/AudioKit.framework/Versions/A/Headers/TPCircularBuffer+Unit.h"; sourceTree = "<group>"; };
 		78FAD1E865A796FE818F9CFE5D079208 /* SkipWhile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkipWhile.swift; path = RxSwift/Observables/SkipWhile.swift; sourceTree = "<group>"; };
 		7906027FC888BDAFE79266A07C613962 /* AKMicrophoneTrackerEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMicrophoneTrackerEngine.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKMicrophoneTrackerEngine.h; sourceTree = "<group>"; };
-		79C57F04311582E0FEF67466D9EF195A /* AMCoreAudio.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AMCoreAudio.modulemap; sourceTree = "<group>"; };
+		79C57F04311582E0FEF67466D9EF195A /* AMCoreAudio.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AMCoreAudio.modulemap; sourceTree = "<group>"; };
 		7BB1915BE7EDE63606BF61E3ECCC9DC2 /* AKTimeline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTimeline.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKTimeline.h; sourceTree = "<group>"; };
 		7C3C90A65C0A60448413F11607C3EC10 /* AsSingle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsSingle.swift; path = RxSwift/Observables/AsSingle.swift; sourceTree = "<group>"; };
 		7C6E53F8162922B4135189AAC9B24D01 /* BehaviorRelay+Driver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BehaviorRelay+Driver.swift"; path = "RxCocoa/Traits/Driver/BehaviorRelay+Driver.swift"; sourceTree = "<group>"; };
@@ -521,8 +521,8 @@
 		92FEF6920725EDCB32034D14D6AB29D8 /* Debounce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debounce.swift; path = RxSwift/Observables/Debounce.swift; sourceTree = "<group>"; };
 		930E046D66BECEFA81CF2D83F5AC7F14 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Extensions.swift"; path = "Platform/DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		9316B36A750572D071E096017E68ABDE /* AnonymousObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnonymousObserver.swift; path = RxSwift/Observers/AnonymousObserver.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93C54B28C4009A8D71AFF0667F5B2850 /* RxCocoa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RxCocoa.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93C54B28C4009A8D71AFF0667F5B2850 /* RxCocoa.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RxCocoa.modulemap; sourceTree = "<group>"; };
 		93F549741177EBBB253255677F3A023E /* NSLayoutConstraint+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+Rx.swift"; path = "RxCocoa/Common/NSLayoutConstraint+Rx.swift"; sourceTree = "<group>"; };
 		941BCD3C495DCA5385D5A4B0A3E24311 /* _RX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RX.h; path = RxCocoa/Runtime/include/_RX.h; sourceTree = "<group>"; };
 		96BABCFBC4F6BE9A95108974A5FA717D /* AKTanhDistortionAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTanhDistortionAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKTanhDistortionAudioUnit.h; sourceTree = "<group>"; };
@@ -550,7 +550,7 @@
 		A2BAB63EA6AECE4657D842961376F184 /* AKStringResonatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKStringResonatorAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKStringResonatorAudioUnit.h; sourceTree = "<group>"; };
 		A42B3190ED004F6C3A72BD25A07B076A /* AKBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBankAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKBankAudioUnit.h; sourceTree = "<group>"; };
 		A43F757D4A03D6E5D09ED987469B99EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A46126523DE03245D6013F22FEC9B7AC /* SwiftyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyConstraints.framework; path = SwiftyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A46126523DE03245D6013F22FEC9B7AC /* SwiftyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46F4CA0BFA58534E71C9FE0294C0E19 /* AKSamplePlayerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKSamplePlayerAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKSamplePlayerAudioUnit.h; sourceTree = "<group>"; };
 		A5580EF508AC4F83191399663479ABBE /* ScheduledDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScheduledDisposable.swift; path = RxSwift/Disposables/ScheduledDisposable.swift; sourceTree = "<group>"; };
 		A83FD7A7B2290D3CB0C5A4580F492071 /* Zip+Collection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Zip+Collection.swift"; path = "RxSwift/Observables/Zip+Collection.swift"; sourceTree = "<group>"; };
@@ -611,7 +611,7 @@
 		CB23836ACFAA98EE061C33A09A2BD4B0 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = Platform/DataStructures/Queue.swift; sourceTree = "<group>"; };
 		CB941189921AE0D1D3E3343A62BB14F9 /* AKResonantFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKResonantFilterAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AKResonantFilterAudioUnit.h; sourceTree = "<group>"; };
 		CB9D5DD4626D850C47DAF62B1FD33728 /* NopDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NopDisposable.swift; path = RxSwift/Disposables/NopDisposable.swift; sourceTree = "<group>"; };
-		CB9E1ACF6566C9EA00A269F2884D8B3A /* AMCoreAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AMCoreAudio.framework; path = AMCoreAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9E1ACF6566C9EA00A269F2884D8B3A /* AMCoreAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMCoreAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB6D657BAB5CBF5258E392BB7B65D29 /* NSTextField+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTextField+Rx.swift"; path = "RxCocoa/macOS/NSTextField+Rx.swift"; sourceTree = "<group>"; };
 		CBBBC19CFEE97CCA5C93079748B2BEA2 /* AudioDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioDevice.swift; path = AMCoreAudio/AudioDevice.swift; sourceTree = "<group>"; };
 		CBCEECC1C82151A0D508DB2440F74BA2 /* EZAudioPlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlot.h; path = macOS/AudioKitUI.framework/Versions/A/Headers/EZAudioPlot.h; sourceTree = "<group>"; };
@@ -627,7 +627,7 @@
 		D59A6ECC4B47DD084DBC230449FC8B15 /* AK4ChowningReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AK4ChowningReverbAudioUnit.h; path = macOS/AudioKit.framework/Versions/A/Headers/AK4ChowningReverbAudioUnit.h; sourceTree = "<group>"; };
 		D62D35D06F8FB41A7C40AA3F0929D57A /* AMCoreAudio-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AMCoreAudio-dummy.m"; sourceTree = "<group>"; };
 		D67F3059570B1A7CDFFE5A62DF82108A /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = macOS/AudioKit.framework; sourceTree = "<group>"; };
-		D78FA774B8325A7DA3779EF4AB59352F /* Pods-AudioSelector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AudioSelector.modulemap"; sourceTree = "<group>"; };
+		D78FA774B8325A7DA3779EF4AB59352F /* Pods-AudioSelector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AudioSelector.modulemap"; sourceTree = "<group>"; };
 		D7EB6C63163DB74B1AC6EECC2B8E1396 /* EZAudioFloatData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFloatData.h; path = macOS/AudioKit.framework/Versions/A/Headers/EZAudioFloatData.h; sourceTree = "<group>"; };
 		D86E3887A6BE90E10195C9768E29C05C /* Pods-AudioSelector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AudioSelector.release.xcconfig"; sourceTree = "<group>"; };
 		D97F8B532A8EA1C3FFE16B573F6EA92C /* Dematerialize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dematerialize.swift; path = RxSwift/Observables/Dematerialize.swift; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 		F8C15A645BEECE3B6AC08F96E24E7878 /* _RXDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _RXDelegateProxy.m; path = RxCocoa/Runtime/_RXDelegateProxy.m; sourceTree = "<group>"; };
 		F99907C0A0F49912AEA645AFF0E8CD22 /* Platform.Darwin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.Darwin.swift; path = Platform/Platform.Darwin.swift; sourceTree = "<group>"; };
 		FA4905BA0B7F095A8DB966A75E92446A /* Completable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Completable.swift; path = RxSwift/Traits/Completable.swift; sourceTree = "<group>"; };
-		FA5B69B5E5481CDC8F0C496F82788307 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxCocoa.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5B69B5E5481CDC8F0C496F82788307 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC8A5253350621979AAECC1DA18AF77 /* AsyncLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncLock.swift; path = RxSwift/Concurrency/AsyncLock.swift; sourceTree = "<group>"; };
 		FAEC29DF2509E3401E8923A440B54355 /* NSObject+Rx+KVORepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx+KVORepresentable.swift"; path = "RxCocoa/Foundation/NSObject+Rx+KVORepresentable.swift"; sourceTree = "<group>"; };
 		FB9B440AA7DF8B9766343A626AEC2002 /* SingleAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAsync.swift; path = RxSwift/Observables/SingleAsync.swift; sourceTree = "<group>"; };
@@ -853,7 +853,6 @@
 				D1CA2F959C7B2302254EA533C66F4CBB /* Utils.swift */,
 				039997874978E838170ED0BBA56F1055 /* Support Files */,
 			);
-			name = AMCoreAudio;
 			path = AMCoreAudio;
 			sourceTree = "<group>";
 		};
@@ -1029,7 +1028,6 @@
 				A83FD7A7B2290D3CB0C5A4580F492071 /* Zip+Collection.swift */,
 				694796DD2C07425F1E83168BFDB52289 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1052,7 +1050,6 @@
 				DD25854F7315EB55AF71975292521280 /* SCViewController.swift */,
 				08B6DAA3154E9815CB7C8C6FD5AEAC08 /* Support Files */,
 			);
-			name = SwiftyConstraints;
 			path = SwiftyConstraints;
 			sourceTree = "<group>";
 		};
@@ -1124,7 +1121,6 @@
 				CA106F42521D51378488D5369B99D74E /* URLSession+Rx.swift */,
 				504AB14538542778AA80F85971470466 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1276,7 +1272,6 @@
 				3A8B5ACFD6CA055D7585711FBDA8F45F /* Frameworks */,
 				BFF16F912A8746A2CDBA86C77E245BE3 /* UI */,
 			);
-			name = AudioKit;
 			path = AudioKit;
 			sourceTree = "<group>";
 		};
@@ -1431,6 +1426,17 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					1179EBCA2A1F37A2937C007C7223E66A = {
+						LastSwiftMigration = 0900;
+					};
+					17F139C51D31CBEAF49A82E82FDB491C = {
+						LastSwiftMigration = 0900;
+					};
+					7A5B230231C32E5F59F076BC4465E49A = {
+						LastSwiftMigration = 0900;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1758,41 +1764,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2970CBCB364F7C31BE14B3B513FF5020 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E19417BA7A8AF908417EC1AC67A45081 /* AMCoreAudio.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AMCoreAudio/AMCoreAudio-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AMCoreAudio/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/AMCoreAudio/AMCoreAudio.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AMCoreAudio;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		35E641EB8358AA46B875CE43FC1AFA20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D86E3887A6BE90E10195C9768E29C05C /* Pods-AudioSelector.release.xcconfig */;
@@ -1832,7 +1803,7 @@
 			};
 			name = Release;
 		};
-		446206E944CE1E14C5E231DD5B556C50 /* Debug */ = {
+		3F54EE5F6510DA0F19D1143AC103C03C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59857CD26A57134DB03B83461E9FC6E9 /* SwiftyConstraints.xcconfig */;
 			buildSettings = {
@@ -1862,7 +1833,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1912,7 +1883,7 @@
 			};
 			name = Release;
 		};
-		4B94373305ABF3EAA4358AF273799979 /* Debug */ = {
+		6EF05E5D2C3F2B8901BFCDAAB3AAD90C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E19417BA7A8AF908417EC1AC67A45081 /* AMCoreAudio.xcconfig */;
 			buildSettings = {
@@ -1942,13 +1913,13 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		544690AE6A0F0ECE13B4D702AD8E075F /* Release */ = {
+		7DE7C3DF72E2DDB5F8D9F6A3B9D5543D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0DE089FE737A0E0FA41CEB1B2B2D0A36 /* RxSwift.xcconfig */;
 			buildSettings = {
@@ -1977,7 +1948,78 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8FD1748B78089C99BCB3EA81FCD43C1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F93438C7D3BC463ED8265DB70CAD28D /* RxCocoa.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa/RxCocoa-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RxCocoa/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/RxCocoa/RxCocoa.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RxCocoa;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BE963E0FC6603CDF4B8660B5E1D27C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59857CD26A57134DB03B83461E9FC6E9 /* SwiftyConstraints.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyConstraints/SwiftyConstraints-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyConstraints/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftyConstraints/SwiftyConstraints.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyConstraints;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2071,7 +2113,42 @@
 			};
 			name = Debug;
 		};
-		EAB4CA3E9B938F33DB8CE21C60C1166D /* Release */ = {
+		B58935F6AB8E73A4F5729AD3EA9D5BBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E19417BA7A8AF908417EC1AC67A45081 /* AMCoreAudio.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AMCoreAudio/AMCoreAudio-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AMCoreAudio/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/AMCoreAudio/AMCoreAudio.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AMCoreAudio;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B58C612D06F6E219EFCDA6C0E6A50388 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F93438C7D3BC463ED8265DB70CAD28D /* RxCocoa.xcconfig */;
 			buildSettings = {
@@ -2100,49 +2177,13 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		F02A31DBC86DC91F0C51B08221C3F6F2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F93438C7D3BC463ED8265DB70CAD28D /* RxCocoa.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa/RxCocoa-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RxCocoa/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/RxCocoa/RxCocoa.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = RxCocoa;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F438B8FC85BA8DCBCE7EC18B1B8C0439 /* Debug */ = {
+		D72A2A68E71B3F22D4B9F7D13495FFE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0DE089FE737A0E0FA41CEB1B2B2D0A36 /* RxSwift.xcconfig */;
 			buildSettings = {
@@ -2172,46 +2213,11 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		F922C0675C66772AC082EE2971DCE214 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59857CD26A57134DB03B83461E9FC6E9 /* SwiftyConstraints.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyConstraints/SwiftyConstraints-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyConstraints/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/SwiftyConstraints/SwiftyConstraints.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyConstraints;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2237,8 +2243,8 @@
 		831B6A34209A4F60F0B433127431EEC7 /* Build configuration list for PBXNativeTarget "RxSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F438B8FC85BA8DCBCE7EC18B1B8C0439 /* Debug */,
-				544690AE6A0F0ECE13B4D702AD8E075F /* Release */,
+				D72A2A68E71B3F22D4B9F7D13495FFE4 /* Debug */,
+				7DE7C3DF72E2DDB5F8D9F6A3B9D5543D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2246,8 +2252,8 @@
 		B06AD77C7709266A1EB8B4C795CE59C6 /* Build configuration list for PBXNativeTarget "AMCoreAudio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B94373305ABF3EAA4358AF273799979 /* Debug */,
-				2970CBCB364F7C31BE14B3B513FF5020 /* Release */,
+				6EF05E5D2C3F2B8901BFCDAAB3AAD90C /* Debug */,
+				B58935F6AB8E73A4F5729AD3EA9D5BBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2255,8 +2261,8 @@
 		F4C3947F644A6AEC3F5C67B8EDAB6E7E /* Build configuration list for PBXNativeTarget "RxCocoa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F02A31DBC86DC91F0C51B08221C3F6F2 /* Debug */,
-				EAB4CA3E9B938F33DB8CE21C60C1166D /* Release */,
+				8FD1748B78089C99BCB3EA81FCD43C1E /* Debug */,
+				B58C612D06F6E219EFCDA6C0E6A50388 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2264,8 +2270,8 @@
 		F902338E28FF25B8CB8D5AE18732C975 /* Build configuration list for PBXNativeTarget "SwiftyConstraints" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				446206E944CE1E14C5E231DD5B556C50 /* Debug */,
-				F922C0675C66772AC082EE2971DCE214 /* Release */,
+				3F54EE5F6510DA0F19D1143AC103C03C /* Debug */,
+				9BE963E0FC6603CDF4B8660B5E1D27C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

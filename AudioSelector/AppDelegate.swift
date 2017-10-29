@@ -11,25 +11,25 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let menuItem = NSStatusBar.system().statusItem(withLength: -2)
+    let menuItem = NSStatusBar.system.statusItem(withLength: -2)
     let popover = SelectorPopover()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         if let button = menuItem.button {
-            button.image = NSImage(named: "MenuIcon")
+            button.image = NSImage(named: NSImage.Name(rawValue: "MenuIcon"))
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
         
         popover.contentViewController =
-            NSStoryboard(name: "Main", bundle: nil)
-                .instantiateController(withIdentifier: "SelectorViewController")
+            NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+                .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectorViewController"))
             as! SelectorViewController
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { }
     
-    func togglePopover(_ sender: AnyObject?) {
+    @objc func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {
             popover.performClose(sender)
         } else if let button = menuItem.button {

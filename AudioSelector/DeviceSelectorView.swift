@@ -59,11 +59,11 @@ class DeviceSelectorView: NSView {
         
         activeControl.target = self
         activeControl.action = #selector(DeviceSelectorView.selectActive)
-        activeControl.sendAction(on: .leftMouseUp)
+        activeControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
         
         defaultControl.target = self
         defaultControl.action = #selector(DeviceSelectorView.selectDefault)
-        defaultControl.sendAction(on: .leftMouseUp)
+        defaultControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
         
         volumeControl.target = self
         volumeControl.action = #selector(DeviceSelectorView.changeVolume(_:))
@@ -96,34 +96,34 @@ class DeviceSelectorView: NSView {
             onNext: { [weak self] value in
                 self?.activeControl.isActive = value
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
         
         indicatorDefault?.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.defaultControl.isActive = value
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
         
         indicatorVolume?.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.volumeControl.floatValue = value as Float
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
         
         indicatorVolumeActive?.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.volumeControl.isEnabled = value
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
         
         viewModel.displayName.asObservable().subscribe(
             onNext: {[weak self] value in
                 self?.deviceLabel.stringValue = value
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
     }
     
-    func selectActive(_ sender: AnyObject) {
+    @objc func selectActive(_ sender: AnyObject) {
         guard let viewModel = viewModel else { return }
         
         if selectorType == .input {
@@ -137,7 +137,7 @@ class DeviceSelectorView: NSView {
         }
     }
     
-    func selectDefault(_ sender: AnyObject) {
+    @objc func selectDefault(_ sender: AnyObject) {
         guard let viewModel = viewModel else { return }
         
         if selectorType == .input {
@@ -151,7 +151,7 @@ class DeviceSelectorView: NSView {
         }
     }
     
-    func changeVolume(_ sender: NSSlider) {
+    @objc func changeVolume(_ sender: NSSlider) {
         guard let viewModel = viewModel else { return }
         
         if selectorType == .input {

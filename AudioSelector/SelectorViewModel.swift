@@ -116,7 +116,7 @@ class SelectorViewModel {
         guard !resetScheduled else { return }
         resetScheduled = true
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
-            Swift.print("scheduleChangeReset running")
+            Logger.shared.add("scheduleChangeReset running")
             self?.resetScheduled = false
             self?.inputDidChange = false
             self?.inputDidChangeWhilePassthrough = false
@@ -127,7 +127,7 @@ class SelectorViewModel {
     }
     
     func handlInterfaceAction(_ action: InterfaceAction, _ target: DeviceViewModel) {
-        Swift.print("handlInterfaceAction \(target.device) \(action)")
+        Logger.shared.add("handlInterfaceAction \(target.device) \(action)")
         switch action {
         case .setAsInput:
             inputDidChangeWhilePassthrough = passthroughActive.value
@@ -177,7 +177,7 @@ extension SelectorViewModel: EventSubscriber {
     
     func eventReceiver(_ event: AMCoreAudio.Event) {
         
-        Swift.print(event)
+        Logger.shared.add(event)
         
         if let devicEvent = event as? AudioDeviceEvent {
             var updateDevice: AudioDevice?
@@ -228,7 +228,7 @@ extension SelectorViewModel: EventSubscriber {
         guard hardwareDidChange else { return }
         scheduleChangeReset()
         
-        Swift.print("\(inputDidChangeWhilePassthrough) \(inputDidChange) \(outputDidChange) \(systemDidChange)")
+        Logger.shared.add("\(inputDidChangeWhilePassthrough) \(inputDidChange) \(outputDidChange) \(systemDidChange)")
         
         if inputDidChange && !inputDidChangeWhilePassthrough {
             if let vm = (devices.value.filter{ $0.device.name == Preferences.standard.defaultInput }).first, let device = AudioDevice.defaultInputDevice() {

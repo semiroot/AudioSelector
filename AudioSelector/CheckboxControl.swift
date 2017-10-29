@@ -25,7 +25,7 @@ class CheckboxControl: NSButton {
     }
     
     func setup() {
-        self.setButtonType(NSSwitchButton)
+        self.setButtonType(NSButton.ButtonType.switch)
     }
     
     public var isActive: Bool {

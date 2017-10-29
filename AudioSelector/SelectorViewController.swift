@@ -54,7 +54,7 @@ class SelectorViewController: NSViewController {
     func createLayout() {
         let constraints = self.view.swiftyConstraints()
         
-        buttonClose.bezelStyle = NSRoundedBezelStyle
+        buttonClose.bezelStyle = NSButton.BezelStyle.rounded
         buttonClose.title = "Quit"
         buttonClose.target = self
         buttonClose.action = #selector(SelectorViewController.doCloseApp)
@@ -66,7 +66,7 @@ class SelectorViewController: NSViewController {
             onNext: { [weak self] value in
                 self?.checkboxPassthrough.isActive = value
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
         
         constraints
             .attach(RemarkView().withText("Active"))
@@ -140,18 +140,18 @@ class SelectorViewController: NSViewController {
             onNext: { [weak self] _ in
                 self?.populateLayout()
             }
-        ).addDisposableTo(disposeBag)
+            ).disposed(by: disposeBag)
     }
     
     func unsubscribeFromViewModel() {
         disposeBag = DisposeBag()
     }
     
-    func togglePassthrough(_ sender: AnyObject) {
+    @objc func togglePassthrough(_ sender: AnyObject) {
         viewModel.togglePassthrough()
     }
     
-    func doCloseApp(_ sender: AnyObject) {
+    @objc func doCloseApp(_ sender: AnyObject) {
         guard let delegate = NSApp.delegate as? AppDelegate else { return }
         delegate.closeApp()
     }

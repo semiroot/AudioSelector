@@ -25,7 +25,7 @@ class RadioControl: NSButton {
     }
     
     func setup() {
-        self.setButtonType(NSRadioButton)
+        self.setButtonType(NSButton.ButtonType.radio)
     }
     
     public var isActive: Bool {

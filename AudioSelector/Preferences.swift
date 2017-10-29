@@ -20,7 +20,7 @@ class Preferences  {
         defaultInput = userDefaults.string(forKey: "defaultInput") ?? ""
         defaultOutput = userDefaults.string(forKey: "defaultOutput") ?? ""
         defaultSystem = userDefaults.string(forKey: "defaultSystem") ?? ""
-        Swift.print("Preferences loading defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
+        Logger.shared.add("Preferences loading defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
     }
     
     func save() {
@@ -28,6 +28,6 @@ class Preferences  {
         userDefaults.setValue(defaultInput, forKey: "defaultInput")
         userDefaults.setValue(defaultOutput, forKey: "defaultOutput")
         userDefaults.setValue(defaultSystem, forKey: "defaultSystem")
-        Swift.print("Preferences saving defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
+        Logger.shared.add("Preferences saving defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
     }
 }
