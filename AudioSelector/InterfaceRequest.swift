@@ -19,5 +19,6 @@ enum InterfaceAction {
     
     case setVolumeIn(Float32)
     case setVolumeOut(Float32)
-    case setVolumeMasterOut(Float32)
+    
+    case togglePassthrough
 }

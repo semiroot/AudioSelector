@@ -10,19 +10,20 @@ import Cocoa
 import RxSwift
 import RxCocoa
 import SwiftyConstraints
+import AudioKit
 
 class SelectorViewController: NSViewController {
     
-    let viewModel = SelectorViewModel()
-    
-    var viewContainerInput = NSView()
-    var viewContainerOutput = NSView()
-    var viewContainerSystem = NSView()
+    let viewContainerInput = NSView()
+    let viewContainerOutput = NSView()
+    let viewContainerSystem = NSView()
+    let buttonClose = NSButton()
+    let checkboxPassthrough = CheckboxControl()
     
     var disposableViews = [DeviceSelectorView]()
     var disposeBag = DisposeBag()
     
-    var buttonClose = NSButton()
+    let viewModel = SelectorViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,8 @@ class SelectorViewController: NSViewController {
     }
     
     override func viewWillAppear() {
-        populateLayout()
         subscribeToViewModel()
+        viewModel.viewWillGetActive()
     }
     
     override func viewDidAppear() {
@@ -41,6 +42,7 @@ class SelectorViewController: NSViewController {
     override func viewDidDisappear() {
         unsubscribeFromViewModel()
         unpopulateLayout()
+        viewModel.viewDidGetInactive()
     }
     
     override var representedObject: Any? {
@@ -57,10 +59,19 @@ class SelectorViewController: NSViewController {
         buttonClose.target = self
         buttonClose.action = #selector(SelectorViewController.doCloseApp)
         
+        checkboxPassthrough.target = self
+        checkboxPassthrough.action = #selector(SelectorViewController.togglePassthrough)
+        
+        viewModel.passthroughActive.asObservable().subscribe(
+            onNext: { [weak self] value in
+                self?.checkboxPassthrough.isActive = value
+            }
+        ).addDisposableTo(disposeBag)
+        
         constraints
             .attach(RemarkView().withText("Active"))
                 .height(10).left(25).top(30)
-            .attach(RemarkView().withText("Default"))
+            .attach(RemarkView().withText("Prefered"))
                 .height(10).left(55).top(30)
             
             .attach(TitleView().withText("Main in"))
@@ -77,6 +88,12 @@ class SelectorViewController: NSViewController {
                 .height(14).right(20).top(5).stackTop()
             .attach(viewContainerSystem)
                 .left(20).top().right(20).stackTop()
+            
+            
+            .attach(checkboxPassthrough)
+                .height(16).width(16).left(20).top(20).stackLeft()
+            .attach(LabelView().withText("Pass input to output"))
+                .height(16).left(5).top(20)
             
             .attach(buttonClose)
                 .top(20).right(20).bottom(20)
@@ -128,6 +145,10 @@ class SelectorViewController: NSViewController {
     
     func unsubscribeFromViewModel() {
         disposeBag = DisposeBag()
+    }
+    
+    func togglePassthrough(_ sender: AnyObject) {
+        viewModel.togglePassthrough()
     }
     
     func doCloseApp(_ sender: AnyObject) {

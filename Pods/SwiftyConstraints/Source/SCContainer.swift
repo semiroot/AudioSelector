@@ -18,7 +18,7 @@
 /// Represents a view and its layout constraints
 internal class SCContainer {
   
-  internal fileprivate(set) weak var view: SCView?
+  internal fileprivate(set) var view: SCView?
   private var constraintStorage = [SCAttribute: NSLayoutConstraint]()
   
   /// Initializer

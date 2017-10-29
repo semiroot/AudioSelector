@@ -1,10 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CODE_SIGN_IDENTITY =
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AMCoreAudio" "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa" "$PODS_CONFIGURATION_BUILD_DIR/RxSwift" "$PODS_CONFIGURATION_BUILD_DIR/SwiftyConstraints"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AMCoreAudio" "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa" "$PODS_CONFIGURATION_BUILD_DIR/RxSwift" "$PODS_CONFIGURATION_BUILD_DIR/SwiftyConstraints" "${PODS_ROOT}/AudioKit/macOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AudioKit"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/../Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AMCoreAudio/AMCoreAudio.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa/RxCocoa.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxSwift/RxSwift.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SwiftyConstraints/SwiftyConstraints.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AMCoreAudio" -framework "RxCocoa" -framework "RxSwift" -framework "SwiftyConstraints"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AMCoreAudio/AMCoreAudio.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa/RxCocoa.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxSwift/RxSwift.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SwiftyConstraints/SwiftyConstraints.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AudioKit"
+OTHER_LDFLAGS = $(inherited) -framework "AMCoreAudio" -framework "AVFoundation" -framework "AudioKit" -framework "AudioKitUI" -framework "RxCocoa" -framework "RxSwift" -framework "SwiftyConstraints"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

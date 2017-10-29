@@ -27,9 +27,9 @@ public enum AudioDeviceEvent: Event {
     case availableNominalSampleRatesDidChange(audioDevice: AudioDevice)
 
     /**
-        Called whenever the audio device's clock source changes for a given channel and direction.
+        Called whenever the audio device's clock source changes.
      */
-    case clockSourceDidChange(audioDevice: AudioDevice, channel: UInt32, direction: Direction)
+    case clockSourceDidChange(audioDevice: AudioDevice)
 
     /**
         Called whenever the audio device's name changes.
@@ -123,11 +123,9 @@ final public class AudioDevice: AudioObject {
 
         case kAudioDevicePropertyClockSource:
 
-            if let strongSelf = self, let direction = direction(to: address.mScope) {
+            if let strongSelf = self {
                 notificationCenter.publish(AudioDeviceEvent.clockSourceDidChange(
-                    audioDevice: strongSelf,
-                    channel: address.mElement,
-                    direction: direction
+                    audioDevice: strongSelf
                 ))
             }
 
@@ -217,9 +215,9 @@ final public class AudioDevice: AudioObject {
     // MARK: - Lifecycle Functions
 
     /**
-        Initializes an `AudioDevice` by providing an audio device identifier.
-     
-        - Parameter deviceID: An audio device identifier that is valid and present in the system.
+        Initializes an `AudioDevice` by providing a valid audio device identifier that is present in the system.
+
+        - Parameter id: An audio device identifier.
      */
     private init?(id: AudioObjectID) {
 
@@ -244,6 +242,8 @@ final public class AudioDevice: AudioObject {
     /**
         Returns an `AudioDevice` by providing a valid audio device identifier.
 
+        - Parameter id: An audio device identifier.
+
         - Note: If identifier is not valid, `nil` will be returned.
      */
     public static func lookup(by id: AudioObjectID) -> AudioDevice? {
@@ -259,6 +259,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         Returns an `AudioDevice` by providing a valid audio device unique identifier.
+
+        - Parameter uid: An audio device unique identifier.
 
         - Note: If unique identifier is not valid, `nil` will be returned.
      */
@@ -619,6 +621,8 @@ final public class AudioDevice: AudioObject {
     /**
          Whether the audio device's jack is connected for a given direction.
 
+         - Parameter direction: A direction.
+
          - Returns: `true` when jack is connected, `false` otherwise.
      */
     public func isJackConnected(direction: Direction) -> Bool? {
@@ -675,6 +679,9 @@ final public class AudioDevice: AudioObject {
 
     /**
         A human readable name for the channel number and direction specified.
+
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `String` with the name of the channel.
      */
@@ -874,6 +881,8 @@ final public class AudioDevice: AudioObject {
     /**
         The number of layout channels for a given direction.
 
+        - Parameter direction: A direction.
+
         - Returns: *(optional)* A `UInt32` with the number of layout channels.
      */
     public func layoutChannels(direction: Direction) -> UInt32? {
@@ -896,6 +905,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         The number of channels for a given direction.
+
+        - Parameter direction: A direction.
 
         - Returns: A `UInt32` with the number of channels.
      */
@@ -933,6 +944,9 @@ final public class AudioDevice: AudioObject {
 
     /**
         A `VolumeInfo` struct containing information about a particular channel and direction combination.
+
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `VolumeInfo` struct.
      */
@@ -1014,6 +1028,9 @@ final public class AudioDevice: AudioObject {
     /**
         The scalar volume for a given channel and direction.
 
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
+
         - Returns: *(optional)* A `Float32` value with the scalar volume.
      */
     public func volume(channel: UInt32, direction: Direction) -> Float32? {
@@ -1029,6 +1046,9 @@ final public class AudioDevice: AudioObject {
 
     /**
         The volume in decibels *(dbFS)* for a given channel and direction.
+
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `Float32` value with the volume in decibels.
      */
@@ -1046,6 +1066,10 @@ final public class AudioDevice: AudioObject {
     /**
         Sets the channel's volume for a given direction.
 
+        - Parameter volume: The new volume as a scalar value ranging from 0 to 1.
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
+
         - Returns: `true` on success, `false` otherwise.
      */
     @discardableResult public func setVolume(_ volume: Float32, channel: UInt32, direction: Direction) -> Bool {
@@ -1061,6 +1085,10 @@ final public class AudioDevice: AudioObject {
 
     /**
         Mutes a channel for a given direction.
+
+        - Parameter shouldMute: Whether channel should be muted or not.
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
 
         - Returns: `true` on success, `false` otherwise.
      */
@@ -1078,6 +1106,9 @@ final public class AudioDevice: AudioObject {
     /**
         Whether a channel is muted for a given direction.
 
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
+
         - Returns: *(optional)* `true` if channel is muted, false otherwise.
      */
     public func isMuted(channel: UInt32, direction: Direction) -> Bool? {
@@ -1094,6 +1125,9 @@ final public class AudioDevice: AudioObject {
     /**
         Whether a channel can be muted for a given direction.
 
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
+
         - Returns: `true` if channel can be muted, `false` otherwise.
      */
     public func canMute(channel: UInt32, direction: Direction) -> Bool {
@@ -1103,6 +1137,9 @@ final public class AudioDevice: AudioObject {
 
     /**
         Whether a channel's volume can be set for a given direction.
+
+        - Parameter channel: A channel.
+        - Parameter direction: A direction.
 
         - Returns: `true` if the channel's volume can be set, `false` otherwise.
      */
@@ -1114,6 +1151,8 @@ final public class AudioDevice: AudioObject {
     /**
         A list of channel numbers that best represent the preferred stereo channels
         used by this device. In most occasions this will be channels 1 and 2.
+
+        - Parameter direction: A direction.
 
         - Returns: A `StereoPair` tuple containing the channel numbers.
      */
@@ -1137,7 +1176,10 @@ final public class AudioDevice: AudioObject {
 
     /**
         Attempts to set the new preferred channels for stereo for a given direction.
-     
+
+        - Parameter channels: A `StereoPair` representing the preferred channels.
+        - Parameter direction: A direction.
+
         - Returns: `true` on success, `false` otherwise.
      */
     @discardableResult public func setPreferredChannelsForStereo(channels: StereoPair, direction: Direction) -> Bool {
@@ -1160,6 +1202,8 @@ final public class AudioDevice: AudioObject {
     /**
         Whether the master volume can be muted for a given direction.
 
+        - Parameter direction: A direction.
+
         - Returns: `true` when the volume can be muted, `false` otherwise.
      */
     public func canMuteVirtualMasterChannel(direction: Direction) -> Bool {
@@ -1180,6 +1224,8 @@ final public class AudioDevice: AudioObject {
     /**
         Whether the master volume can be set for a given direction.
 
+        - Parameter direction: A direction.
+
         - Returns: `true` when the volume can be set, `false` otherwise.
      */
     public func canSetVirtualMasterVolume(direction: Direction) -> Bool {
@@ -1195,7 +1241,8 @@ final public class AudioDevice: AudioObject {
     /**
         Sets the virtual master volume for a given direction.
 
-        - Note: The volume is given as a scalar value (i.e., 0 to 1)
+        - Parameter volume: The new volume as a scalar value ranging from 0 to 1.
+        - Parameter direction: A direction.
 
         - Returns: `true` on success, `false` otherwise.
      */
@@ -1212,6 +1259,8 @@ final public class AudioDevice: AudioObject {
     /**
         The virtual master scalar volume for a given direction.
 
+        - Parameter direction: A direction.
+
         - Returns: *(optional)* A `Float32` value with the scalar volume.
      */
     public func virtualMasterVolume(direction: Direction) -> Float32? {
@@ -1226,6 +1275,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         The virtual master volume in decibels for a given direction.
+
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `Float32` value with the volume in decibels.
      */
@@ -1253,6 +1304,8 @@ final public class AudioDevice: AudioObject {
     /**
         Whether the volume is muted for a given direction.
 
+        - Parameter direction: A direction.
+ 
         - Returns: `true` when muted, `false` otherwise.
      */
     public func isMasterChannelMuted(direction: Direction) -> Bool? {
@@ -1260,6 +1313,16 @@ final public class AudioDevice: AudioObject {
         return isMuted(channel: kAudioObjectPropertyElementMaster, direction: direction)
     }
 
+    /**
+         The virtual master balance for a given direction.
+
+         The range is from 0 (all power to the left) to 1 (all power to the right) with the value of 0.5 signifying
+         that the channels have equal power.
+
+        - Parameter direction: A direction.
+
+        - Returns: *(optional)* A `Float32` value with the stereo balance.
+     */
     public func virtualMasterBalance(direction: Direction) -> Float32? {
 
         if let address = validAddress(selector: kAudioHardwareServiceDeviceProperty_VirtualMasterBalance,
@@ -1270,6 +1333,17 @@ final public class AudioDevice: AudioObject {
         }
     }
 
+    /**
+        Sets the new virtual master balance for a given direction.
+
+        The range is from 0 (all power to the left) to 1 (all power to the right) with the value of 0.5 signifying
+        that the channels have equal power.
+
+        - Parameter value: The new balance.
+        - Parameter direction: A direction.
+
+        - Returns: `true` on success, `false` otherwise.
+     */
     @discardableResult public func setVirtualMasterBalance(_ value: Float32, direction: Direction) -> Bool {
 
         if let address = validAddress(selector: kAudioHardwareServiceDeviceProperty_VirtualMasterBalance,
@@ -1313,6 +1387,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         Sets the nominal sample rate.
+
+        - Parameter sampleRate: The new nominal sample rate.
 
         - Returns: `true` on success, `false` otherwise.
      */
@@ -1377,14 +1453,14 @@ final public class AudioDevice: AudioObject {
     // MARK: - 𝍄 Clock Source Functions
 
     /**
-        The clock source identifier for the channel number and direction specified.
+        The current clock source identifier for this audio device.
 
         - Returns: *(optional)* A `UInt32` containing the clock source identifier.
      */
-    public func clockSourceID(channel: UInt32, direction: Direction) -> UInt32? {
+    public func clockSourceID() -> UInt32? {
 
         if let address = validAddress(selector: kAudioDevicePropertyClockSource,
-                                      scope: scope(direction: direction)) {
+                                      scope: kAudioObjectPropertyScopeGlobal) {
             return getProperty(address: address)
         } else {
             return nil
@@ -1392,13 +1468,13 @@ final public class AudioDevice: AudioObject {
     }
 
     /**
-        The clock source name for the channel number and direction specified.
+        The current clock source name for this audio device.
 
         - Returns: *(optional)* A `String` containing the clock source name.
      */
-    public func clockSourceName(channel: UInt32, direction: Direction) -> String? {
+    public func clockSourceName() -> String? {
 
-        if let sourceID = clockSourceID(channel: channel, direction: direction) {
+        if let sourceID = clockSourceID() {
             return clockSourceName(clockSourceID: sourceID)
         }
 
@@ -1406,15 +1482,15 @@ final public class AudioDevice: AudioObject {
     }
 
     /**
-        A list of clock source identifiers for the channel number and direction specified.
+        A list of all the clock source identifiers available for this audio device.
 
         - Returns: *(optional)* A `UInt32` array containing all the clock source identifiers.
      */
-    public func clockSourceIDs(channel: UInt32, direction: Direction) -> [UInt32]? {
+    public func clockSourceIDs() -> [UInt32]? {
 
         guard let address = validAddress(selector: kAudioDevicePropertyClockSources,
-                                         scope: scope(direction: direction),
-                                         element: channel) else { return nil }
+                                         scope: kAudioObjectPropertyScopeGlobal,
+                                         element: kAudioObjectPropertyElementMaster) else { return nil }
 
         var clockSourceIDs = [UInt32]()
         let status = getPropertyDataArray(address, value: &clockSourceIDs, andDefaultValue: 0)
@@ -1427,13 +1503,13 @@ final public class AudioDevice: AudioObject {
     }
 
     /**
-        A list of clock source names for the channel number and direction specified.
+        A list of all the clock source names available for this audio device.
 
         - Returns: *(optional)* A `String` array containing all the clock source names.
      */
-    public func clockSourceNames(channel: UInt32, direction: Direction) -> [String]? {
+    public func clockSourceNames() -> [String]? {
 
-        if let clockSourceIDs = clockSourceIDs(channel: channel, direction: direction) {
+        if let clockSourceIDs = clockSourceIDs() {
             return clockSourceIDs.map {
                 // We expect clockSourceNameForClockSourceID to never fail in this case, 
                 // but in the unlikely case it does, we provide a default value.
@@ -1445,8 +1521,10 @@ final public class AudioDevice: AudioObject {
     }
 
     /**
-        Returns the clock source name for a given clock source ID in a given channel and direction.
-     
+        Returns the clock source name for a given clock source ID.
+
+        - Parameter clockSourceID: A clock source ID.
+
         - Returns: *(optional)* A `String` with the source clock name.
      */
     public func clockSourceName(clockSourceID: UInt32) -> String? {
@@ -1473,15 +1551,16 @@ final public class AudioDevice: AudioObject {
     }
 
     /**
-        Sets the clock source for a channel and direction.
+        Sets the clock source for this audio device.
+
+        - Parameter clockSourceID: A clock source ID.
 
         - Returns: `true` on success, `false` otherwise.
      */
-    @discardableResult public func setClockSourceID(_ clockSourceID: UInt32, channel: UInt32, direction: Direction) -> Bool {
+    @discardableResult public func setClockSourceID(_ clockSourceID: UInt32) -> Bool {
 
         if let address = validAddress(selector: kAudioDevicePropertyClockSource,
-                                      scope: scope(direction: direction),
-                                      element: channel) {
+                                      scope: kAudioObjectPropertyScopeGlobal) {
             return setProperty(address: address, value: clockSourceID)
         } else {
             return false
@@ -1493,6 +1572,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         The latency in frames for the specified direction.
+
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `UInt32` value with the latency in frames.
      */
@@ -1508,6 +1589,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         The safety offset frames for the specified direction.
+
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `UInt32` value with the safety offset in frames.
      */
@@ -1590,8 +1673,11 @@ final public class AudioDevice: AudioObject {
     // MARK: - ♺ Volume Conversion Functions
 
     /**
-        Converts a scalar volume to a decibel *(dbFS)* volume
-        for the given channel and direction.
+        Converts a scalar volume to a decibel *(dbFS)* volume for the given channel and direction.
+
+        - Parameter volume: A scalar volume.
+        - Parameter channel: A channel number.
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `Float32` value with the scalar volume converted in decibels.
      */
@@ -1609,6 +1695,10 @@ final public class AudioDevice: AudioObject {
 
     /**
         Converts a relative decibel *(dbFS)* volume to a scalar volume for the given channel and direction.
+
+        - Parameter volume: A volume in relative decibels (dbFS).
+        - Parameter channel: A channel number.
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* A `Float32` value with the decibels volume converted to scalar.
      */
@@ -1629,6 +1719,8 @@ final public class AudioDevice: AudioObject {
 
     /**
         Returns a list of streams for a given direction.
+
+        - Parameter direction: A direction.
 
         - Returns: *(optional)* An array of `AudioStream` objects.
      */

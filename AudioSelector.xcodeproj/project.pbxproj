@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64175AC11F3F1DAC008F89A1 /* SelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */; };
+		644094521F49F666005506DC /* CheckboxControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644094511F49F666005506DC /* CheckboxControl.swift */; };
 		645C30F91F3F2E7300369B45 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30F81F3F2E7300369B45 /* LabelView.swift */; };
 		645C30FB1F3F38F000369B45 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FA1F3F38F000369B45 /* CircleView.swift */; };
 		645C30FD1F3F3CDE00369B45 /* DeviceSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewModel.swift; sourceTree = "<group>"; };
+		644094511F49F666005506DC /* CheckboxControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxControl.swift; sourceTree = "<group>"; };
 		645C30F81F3F2E7300369B45 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		645C30FA1F3F38F000369B45 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		645C30FC1F3F3CDE00369B45 /* DeviceSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectorView.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceRequest.swift; sourceTree = "<group>"; };
 		64BBA5AC1F409A0300EBCC50 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorPopover.swift; sourceTree = "<group>"; };
-		64BCCA531F3F1B5300BE7F9E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		64BCCA531F3F1B5300BE7F9E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
 		98E4D821E6B67C464A146B96 /* Pods-AudioSelector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioSelector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector.debug.xcconfig"; sourceTree = "<group>"; };
 		BF8A8C2143228488C5CA6471 /* Pods-AudioSelector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioSelector.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				64BBA5A61F406C9800EBCC50 /* RadioControl.swift */,
+				644094511F49F666005506DC /* CheckboxControl.swift */,
 			);
 			name = ControlViews;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				64BBA5A91F4071D400EBCC50 /* RemarkView.swift in Sources */,
 				645C30FB1F3F38F000369B45 /* CircleView.swift in Sources */,
 				64BBA5AB1F408E2F00EBCC50 /* InterfaceRequest.swift in Sources */,
+				644094521F49F666005506DC /* CheckboxControl.swift in Sources */,
 				64BCCA511F3F0E4000BE7F9E /* SelectorPopover.swift in Sources */,
 				64BBA5A71F406C9800EBCC50 /* RadioControl.swift in Sources */,
 				649352291F3E4294000AAEA4 /* AppDelegate.swift in Sources */,

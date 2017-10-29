@@ -26,6 +26,7 @@ class DeviceSelectorView: NSView {
     private let activeControl = RadioControl()
     private let defaultControl = RadioControl()
     private let volumeControl = NSSlider()
+    private let deviceLabel = LabelView()
     
     private var disposeBag = DisposeBag()
     
@@ -45,7 +46,7 @@ class DeviceSelectorView: NSView {
         swiftyConstraints()
             .attach(activeControl).height(16).width(16).left().top().bottom().stackLeft()
             .attach(defaultControl).height(16).width(16).left(10).top().bottom().stackLeft()
-            .attach(LabelView().withText(viewModel.name)).height(20).left(10).top().stackLeft()
+            .attach(deviceLabel).height(20).left(10).top().stackLeft()
             .attach(volumeControl).middle().width(120).left(20).top().right()
         
         subscribeToViewModel()
@@ -112,6 +113,12 @@ class DeviceSelectorView: NSView {
         indicatorVolumeActive?.asObservable().subscribe(
             onNext: { [weak self] value in
                 self?.volumeControl.isEnabled = value
+            }
+        ).addDisposableTo(disposeBag)
+        
+        viewModel.displayName.asObservable().subscribe(
+            onNext: {[weak self] value in
+                self?.deviceLabel.stringValue = value
             }
         ).addDisposableTo(disposeBag)
     }

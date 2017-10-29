@@ -26,9 +26,10 @@ class DeviceViewModel {
     var volumeOut = Variable<Float32>(0)
     var canChangeVolumeIn = Variable(false)
     var canChangeVolumeOut = Variable(false)
+    var displayName = Variable("")
     
     var name: String {
-        return device.name
+        return (device.isJackConnected(direction: .playback) ?? false) ? "\(device.name) (Headphones)" : device.name
     }
     
     var isInputDevice: Bool {
@@ -49,6 +50,8 @@ class DeviceViewModel {
     }
     
     func update() {
+        
+        displayName.value = (device.isJackConnected(direction: .playback) ?? false) ? "\(device.name) (Headphones)" : device.name
         
         volumeIn.value = device.virtualMasterVolume(direction: .recording) ?? 0
         volumeOut.value = device.virtualMasterVolume(direction: .playback) ?? 0
