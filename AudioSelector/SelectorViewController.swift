@@ -116,7 +116,7 @@ class SelectorViewController: NSViewController {
         let outputConstraints = viewContainerOutput.swiftyConstraints()
         let systemConstraints = viewContainerSystem.swiftyConstraints()
         
-        for deviceViewModel in viewModel.devices.value {
+        for deviceViewModel in viewModel.deviceViewModels.value {
             if deviceViewModel.isInputDevice {
                 let inputControl = DeviceSelectorView().setup(deviceViewModel, .input)
                 disposableViews.append(inputControl)
@@ -145,7 +145,7 @@ class SelectorViewController: NSViewController {
     }
     
     func subscribeToViewModel() {
-        viewModel.devices.asObservable().subscribe(
+        viewModel.deviceViewModels.asObservable().subscribe(
             onNext: { [weak self] _ in
                 self?.populateLayout()
             }
@@ -164,7 +164,7 @@ class SelectorViewController: NSViewController {
     }
     
     @objc func togglePassthrough(_ sender: AnyObject) {
-        viewModel.togglePassthrough()
+        viewModel.handlInterfaceAction(.togglePassthrough, nil)
     }
     
     @objc func doCloseApp(_ sender: AnyObject) {

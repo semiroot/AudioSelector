@@ -15,6 +15,8 @@ class DeviceViewModel {
     var interfaceActionRequests: Observable<InterfaceAction>
     var interfaceActionPublish = PublishSubject<InterfaceAction>()
     
+    var isPresent = true
+    
     var isInput = Variable(false)
     var isOutput = Variable(false)
     var isSystem = Variable(false)
@@ -106,16 +108,16 @@ class DeviceViewModel {
         interfaceActionPublish.onNext(InterfaceAction.setAsSystem)
     }
     
-    func setAsDefaultInput() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultInput)
+    func setAsPresetInput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPresetInput)
     }
     
-    func setAsDefaultOutput() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultOutput)
+    func setAsPresetOutput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPresetOutput)
     }
     
-    func setAsDefaultSystem() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsDefaultSystem)
+    func setAsPresetSystem() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPresetSystem)
     }
     
     func setVolumeIn(_ volume: Float32) {

@@ -13,9 +13,9 @@ enum InterfaceAction {
     case setAsOutput
     case setAsSystem
     
-    case setAsDefaultInput
-    case setAsDefaultOutput
-    case setAsDefaultSystem
+    case setAsPresetInput
+    case setAsPresetOutput
+    case setAsPresetSystem
     
     case setVolumeIn(Float32)
     case setVolumeOut(Float32)

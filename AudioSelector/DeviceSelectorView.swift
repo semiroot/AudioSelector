@@ -60,13 +60,16 @@ class DeviceSelectorView: NSView {
         activeControl.target = self
         activeControl.action = #selector(DeviceSelectorView.selectActive)
         activeControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
+        activeControl.isEnabled = viewModel.isPresent
         
         defaultControl.target = self
         defaultControl.action = #selector(DeviceSelectorView.selectDefault)
         defaultControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
+        defaultControl.isEnabled = viewModel.isPresent
         
         volumeControl.target = self
         volumeControl.action = #selector(DeviceSelectorView.changeVolume(_:))
+        volumeControl.isEnabled = viewModel.isPresent
         
         var indicatorAction: Variable<Bool>?
         var indicatorDefault: Variable<Bool>?
@@ -141,13 +144,13 @@ class DeviceSelectorView: NSView {
         guard let viewModel = viewModel else { return }
         
         if selectorType == .input {
-            viewModel.setAsDefaultInput()
+            viewModel.setAsPresetInput()
         }
         if selectorType == .output {
-            viewModel.setAsDefaultOutput()
+            viewModel.setAsPresetOutput()
         }
         if selectorType == .system {
-            viewModel.setAsDefaultSystem()
+            viewModel.setAsPresetSystem()
         }
     }
     

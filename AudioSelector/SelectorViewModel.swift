@@ -13,14 +13,23 @@ import AudioKit
 
 class SelectorViewModel {
     
-    var devices = Variable([DeviceViewModel]())
+    var deviceViewModels = Variable([DeviceViewModel]())
+    var inputDeviceViewModel: DeviceViewModel? {
+        return (self.deviceViewModels.value.filter{ $0.isInput.value == true }).first
+    }
+    var outputDeviceViewModel: DeviceViewModel? {
+        return (self.deviceViewModels.value.filter{ $0.isOutput.value == true }).first
+    }
+    var systemDeviceViewModel: DeviceViewModel? {
+        return (self.deviceViewModels.value.filter{ $0.isSystem.value == true }).first
+    }
+    
     var passthroughActive = Variable(false)
     
     fileprivate var disposeBag = DisposeBag()
     
     fileprivate var resetScheduled = false
     fileprivate var inputDidChange = false
-    fileprivate var inputDidChangeWhilePassthrough = false
     fileprivate var outputDidChange = false
     fileprivate var systemDidChange = false
     fileprivate var hardwareDidChange = false
@@ -61,55 +70,25 @@ class SelectorViewModel {
             ).disposed(by: disposeBag)
             list.append(dvm)
         }
-        devices.value = list
+        deviceViewModels.value = list
     }
     
     func updateViewModels() {
-        devices.value.forEach { $0.update() }
+        deviceViewModels.value.forEach { $0.update() }
     }
     
     func updateViewModel(_ device : AudioDevice) {
         getViewModel(device)?.update()
     }
     
-    fileprivate func getViewModel(_ forDevice: AudioDevice) -> DeviceViewModel? {
-        if let vm = (devices.value.filter{ $0.device.uid == forDevice.uid }).first{
+    private func getViewModel(_ forDevice: AudioDevice) -> DeviceViewModel? {
+        if let vm = (deviceViewModels.value.filter{ $0.device.uid == forDevice.uid }).first{
             return vm
         }
-        if let vm = (devices.value.filter{ $0.device.name == forDevice.name }).first{
+        if let vm = (deviceViewModels.value.filter{ $0.device.name == forDevice.name }).first{
             return vm
         }
         return nil
-    }
-    
-    func togglePassthrough() {
-        if passthroughActive.value == true {
-            stopPassthrough()
-        } else {
-            startPassthrough()
-        }
-    }
-    
-    func refreshPassthrough() {
-        guard passthroughActive.value == true else { return }
-        stopPassthrough()
-        startPassthrough()
-    }
-    
-    func startPassthrough() {
-        passthroughActive.value = true
-        passthroughInput = AKMicrophone() // microphone will point to what ever is the default input device
-        AudioKit.output = passthroughInput
-        AudioKit.start()
-    }
-    
-    func stopPassthrough() {
-        AudioKit.stop()
-        AudioKit.output = nil
-        AudioKit.disconnectAllInputs()
-        passthroughInput?.stop()
-        passthroughInput = nil
-        passthroughActive.value = false
     }
     
     func scheduleChangeReset() {
@@ -119,44 +98,49 @@ class SelectorViewModel {
             Logger.shared.add("scheduleChangeReset running")
             self?.resetScheduled = false
             self?.inputDidChange = false
-            self?.inputDidChangeWhilePassthrough = false
             self?.outputDidChange = false
             self?.systemDidChange = false
             self?.hardwareDidChange = false
         }
     }
     
-    func handlInterfaceAction(_ action: InterfaceAction, _ target: DeviceViewModel) {
-        Logger.shared.add("handlInterfaceAction \(target.device) \(action)")
+    func handlInterfaceAction(_ action: InterfaceAction, _ target: DeviceViewModel?) {
+        Logger.shared.add("handlInterfaceAction \(String(describing: target?.device)) \(action)")
         switch action {
         case .setAsInput:
-            inputDidChangeWhilePassthrough = passthroughActive.value
-            target.device.setAsDefaultInputDevice()
+            target?.device.setAsDefaultInputDevice()
+            stopPassthrough()
             break
         case .setAsOutput:
-            target.device.setAsDefaultOutputDevice()
+            target?.device.setAsDefaultOutputDevice()
+            stopPassthrough()
             break
         case .setAsSystem:
-            target.device.setAsDefaultSystemDevice()
+            target?.device.setAsDefaultSystemDevice()
             break
-        case .setAsDefaultInput:
-            Preferences.standard.defaultInput = target.device.name
+        case .setAsPresetInput:
+            guard let name = target?.device.name else { return }
+            Preferences.standard.defaultInput = name
             Preferences.standard.save()
             break
-        case .setAsDefaultOutput:
-            Preferences.standard.defaultOutput = target.device.name
+        case .setAsPresetOutput:
+            guard let name = target?.device.name else { return }
+            Preferences.standard.defaultOutput = name
             Preferences.standard.save()
             break
-        case .setAsDefaultSystem:
-            Preferences.standard.defaultSystem = target.device.name
+        case .setAsPresetSystem:
+            guard let name = target?.device.name else { return }
+            Preferences.standard.defaultSystem = name
             Preferences.standard.save()
             break
         case .setVolumeIn(let volume):
+            guard let target = target else { return }
             if target.device.canSetVirtualMasterVolume(direction: .recording) {
                 target.device.setVirtualMasterVolume(volume, direction: .recording)
             }
             break
         case .setVolumeOut(let volume):
+            guard let target = target else { return }
             if target.device.canSetVirtualMasterVolume(direction: .playback) {
                 target.device.setVirtualMasterVolume(volume, direction: .playback)
             }
@@ -169,11 +153,42 @@ class SelectorViewModel {
     }
 }
 
+// MARK: - Audio pass through handling
+extension SelectorViewModel {
+    func togglePassthrough() {
+        if passthroughActive.value == true {
+            stopPassthrough()
+        } else {
+            startPassthrough()
+        }
+    }
+    
+    private func refreshPassthrough() {
+        guard passthroughActive.value == true else { return }
+        stopPassthrough()
+        startPassthrough()
+    }
+    
+    private func startPassthrough() {
+        passthroughActive.value = true
+        passthroughInput = AKMicrophone() // microphone will point to what ever is the default input device
+        AudioKit.output = passthroughInput
+        AudioKit.start()
+    }
+    
+    private func stopPassthrough() {
+        AudioKit.stop()
+        AudioKit.output = nil
+        AudioKit.disconnectAllInputs()
+        passthroughInput?.stop()
+        passthroughInput = nil
+        passthroughActive.value = false
+    }
+}
 // MARK: - Implementation of AMCoreAudio EventSubscriber
 extension SelectorViewModel: EventSubscriber {
     
     var hashValue: Int { get { return 707 as Int } }
-    
     
     func eventReceiver(_ event: AMCoreAudio.Event) {
         
@@ -198,8 +213,8 @@ extension SelectorViewModel: EventSubscriber {
             default: break
             }
             
-            if updateDevice != nil {
-                updateViewModel(updateDevice!)
+            if let updateDevice = updateDevice {
+                updateViewModel(updateDevice)
             }
         }
         
@@ -212,9 +227,6 @@ extension SelectorViewModel: EventSubscriber {
                 hardwareDidChange = true
             case .defaultInputDeviceChanged(_):
                 inputDidChange = true
-                if inputDidChangeWhilePassthrough {
-                    refreshPassthrough()
-                }
             case .defaultOutputDeviceChanged(_):
                 outputDidChange = true
             case .defaultSystemOutputDeviceChanged(_):
@@ -223,29 +235,30 @@ extension SelectorViewModel: EventSubscriber {
             reloadViewModels()
         }
         
+        Logger.shared.add("\(hardwareDidChange) \(inputDidChange) \(outputDidChange) \(systemDidChange)")
         
         // check if we need to reset to our prefered settings
         guard hardwareDidChange else { return }
         scheduleChangeReset()
         
-        Logger.shared.add("\(inputDidChangeWhilePassthrough) \(inputDidChange) \(outputDidChange) \(systemDidChange)")
+        stopPassthrough()
         
-        if inputDidChange && !inputDidChangeWhilePassthrough {
-            if let vm = (devices.value.filter{ $0.device.name == Preferences.standard.defaultInput }).first, let device = AudioDevice.defaultInputDevice() {
+        if inputDidChange {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultInput }).first, let device = AudioDevice.defaultInputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsInput()
                 }
             }
         }
         if outputDidChange {
-            if let vm = (devices.value.filter{ $0.device.name == Preferences.standard.defaultOutput }).first, let device = AudioDevice.defaultOutputDevice() {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultOutput }).first, let device = AudioDevice.defaultOutputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsOutput()
                 }
             }
         }
         if systemDidChange {
-            if let vm = (devices.value.filter{ $0.device.name == Preferences.standard.defaultSystem }).first, let device = AudioDevice.defaultSystemOutputDevice() {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultSystem }).first, let device = AudioDevice.defaultSystemOutputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsSystem()
                 }
