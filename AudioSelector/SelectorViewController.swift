@@ -157,6 +157,12 @@ class SelectorViewController: NSViewController {
                 self?.logView.currentEditor()?.selectedRange = NSRange()
             }
         ).disposed(by: disposeBag)
+        
+        viewModel.passthroughActive.asObservable().subscribe(
+            onNext: { [weak self] state in
+                self?.checkboxPassthrough.isActive = state
+            }
+        ).disposed(by: disposeBag)
     }
     
     func unsubscribeFromViewModel() {
