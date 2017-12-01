@@ -5,12 +5,12 @@
     },
     {
       "idiom" : "mac",
-      "filename" : "MenuIcon.png",
+      "filename" : "Icon16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
-      "filename" : "MenuIcon@2.png",
+      "filename" : "Icon32.png",
       "scale" : "2x"
     }
   ],

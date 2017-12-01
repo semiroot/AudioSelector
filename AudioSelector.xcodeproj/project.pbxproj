@@ -46,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		640472661FD1F55700C81E2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		640472671FD20B4600C81E2C /* Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screenshot.png; path = Resources/Screenshot.png; sourceTree = "<group>"; };
+		640472681FD20B4700C81E2C /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Source; path = Resources/Source; sourceTree = "<group>"; };
 		64175AC01F3F1DAC008F89A1 /* SelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewModel.swift; sourceTree = "<group>"; };
 		644094511F49F666005506DC /* CheckboxControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxControl.swift; sourceTree = "<group>"; };
 		645C30F81F3F2E7300369B45 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
@@ -61,8 +64,6 @@
 		6493520E1F3E2AC2000AAEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		649352281F3E4294000AAEA4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6493522A1F3E4358000AAEA4 /* SelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
-		649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIcon.pxm; path = Resources/MenuIcon.pxm; sourceTree = "<group>"; };
-		649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; name = MenuIconSmall.pxm; path = Resources/MenuIconSmall.pxm; sourceTree = "<group>"; };
 		6499DFD21FA62754000A1D9B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Logic/Logger.swift; sourceTree = "<group>"; };
 		6499DFD41FA62BD2000A1D9B /* ButtonControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonControl.swift; sourceTree = "<group>"; };
 		6499DFD81FA62E23000A1D9B /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		649351EE1F3E2AC2000AAEA4 = {
 			isa = PBXGroup;
 			children = (
+				640472661FD1F55700C81E2C /* README.md */,
 				64BCCA521F3F1B1100BE7F9E /* Cocoapods */,
 				649351F91F3E2AC2000AAEA4 /* AudioSelector */,
 				6493520B1F3E2AC2000AAEA4 /* AudioSelectorTests */,
@@ -161,8 +163,8 @@
 		649352171F3E2B0F000AAEA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				649352361F3E5D0A000AAEA4 /* MenuIconSmall.pxm */,
-				649352341F3E5CB9000AAEA4 /* MenuIcon.pxm */,
+				640472671FD20B4600C81E2C /* Screenshot.png */,
+				640472681FD20B4700C81E2C /* Source */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,6 +268,7 @@
 				649351F51F3E2AC2000AAEA4 /* Resources */,
 				CAEE6ACD8F767EA86056568E /* [CP] Embed Pods Frameworks */,
 				36695B417E74A035E55452E3 /* [CP] Copy Pods Resources */,
+				6404726B1FD2176E00C81E2C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -388,6 +391,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6404726B1FD2176E00C81E2C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash /usr/libexec/PlistBuddy 2>/dev/null; then\n    buildNumber=$(date +%y%m%d.%H%M.)$(git -C ${SRCROOT} rev-list --count HEAD)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" \"${SRCROOT}/AudioSelector/Info.plist\"\nelse\n    echo \"Please install PlistBuddy for the build number to be calculated automatically\"\nfi";
 		};
 		CAEE6ACD8F767EA86056568E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -575,6 +591,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98E4D821E6B67C464A146B96 /* Pods-AudioSelector.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
@@ -590,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF8A8C2143228488C5CA6471 /* Pods-AudioSelector.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
