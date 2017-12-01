@@ -30,6 +30,7 @@ class LabelView: NSTextField {
     }
     
     func setup() {
+        self.wantsLayer = true
         self.isBezeled = false
         self.drawsBackground = false
         self.isEditable = false

@@ -14,15 +14,9 @@ import AudioKit
 class SelectorViewModel {
     
     var deviceViewModels = Variable([DeviceViewModel]())
-    var inputDeviceViewModel: DeviceViewModel? {
-        return (self.deviceViewModels.value.filter{ $0.isInput.value == true }).first
-    }
-    var outputDeviceViewModel: DeviceViewModel? {
-        return (self.deviceViewModels.value.filter{ $0.isOutput.value == true }).first
-    }
-    var systemDeviceViewModel: DeviceViewModel? {
-        return (self.deviceViewModels.value.filter{ $0.isSystem.value == true }).first
-    }
+    var unavalablePreferredInputViewModel: DeviceUnavailableViewModel?
+    var unavalablePreferredOutputViewModel: DeviceUnavailableViewModel?
+    var unavalablePreferredSystemViewModel: DeviceUnavailableViewModel?
     
     var passthroughActive = Variable(false)
     
@@ -59,6 +53,8 @@ class SelectorViewModel {
     
     func reloadViewModels() {
         self.disposeBag = DisposeBag()
+        
+        // generate new device view model list
         var list = [DeviceViewModel]()
         for device in AudioDevice.allDevices() {
             if device.name.contains("CADefaultDeviceAggregate") { continue }
@@ -70,10 +66,49 @@ class SelectorViewModel {
             ).disposed(by: disposeBag)
             list.append(dvm)
         }
+        
+        // generate new device unavailable view model items
+        let pref = Preferences.standard
+        
+        unavalablePreferredInputViewModel = nil
+        unavalablePreferredOutputViewModel = nil
+        unavalablePreferredSystemViewModel = nil
+        
+        if pref.preferredInput != "" && (self.deviceViewModels.value.filter{ $0.name == pref.preferredInput }).count == 0 {
+            let vm = DeviceUnavailableViewModel(SelectorTypes.input)
+            vm.interfaceActionRequests.asObservable().subscribe(
+                onNext: { [weak self] action in
+                    self?.handlInterfaceAction(action, vm)
+                }
+            ).disposed(by: disposeBag)
+            unavalablePreferredInputViewModel = vm
+        }
+        if pref.preferredOutput != "" && (self.deviceViewModels.value.filter{ $0.name == pref.preferredOutput }).count == 0 {
+            let vm = DeviceUnavailableViewModel(SelectorTypes.output)
+            vm.interfaceActionRequests.asObservable().subscribe(
+                onNext: { [weak self] action in
+                    self?.handlInterfaceAction(action, vm)
+                }
+            ).disposed(by: disposeBag)
+            unavalablePreferredOutputViewModel = vm
+        }
+        if pref.preferredSystem != "" && (self.deviceViewModels.value.filter{ $0.name == pref.preferredSystem }).count == 0 {
+            let vm = DeviceUnavailableViewModel(SelectorTypes.system)
+            vm.interfaceActionRequests.asObservable().subscribe(
+                onNext: { [weak self] action in
+                    self?.handlInterfaceAction(action, vm)
+                }
+            ).disposed(by: disposeBag)
+            unavalablePreferredSystemViewModel = vm
+        }
+        
         deviceViewModels.value = list
     }
     
     func updateViewModels() {
+        unavalablePreferredInputViewModel?.update()
+        unavalablePreferredOutputViewModel?.update()
+        unavalablePreferredSystemViewModel?.update()
         deviceViewModels.value.forEach { $0.update() }
     }
     
@@ -104,50 +139,62 @@ class SelectorViewModel {
         }
     }
     
-    func handlInterfaceAction(_ action: InterfaceAction, _ target: DeviceViewModel?) {
-        Logger.shared.add("handlInterfaceAction \(String(describing: target?.device)) \(action)")
+    func handlInterfaceAction(_ action: InterfaceAction, _ target: AnyObject?) {
+        Logger.shared.add("handlInterfaceAction \(String(describing: target)) \(action)")
         switch action {
         case .setAsInput:
-            target?.device.setAsDefaultInputDevice()
+            guard let target = target as? DeviceViewModel else { return }
+            target.device.setAsDefaultInputDevice()
             stopPassthrough()
             break
         case .setAsOutput:
-            target?.device.setAsDefaultOutputDevice()
+            guard let target = target as? DeviceViewModel else { return }
+            target.device.setAsDefaultOutputDevice()
             stopPassthrough()
             break
         case .setAsSystem:
-            target?.device.setAsDefaultSystemDevice()
+            guard let target = target as? DeviceViewModel else { return }
+            target.device.setAsDefaultSystemDevice()
             break
-        case .setAsPresetInput:
-            guard let name = target?.device.name else { return }
-            Preferences.standard.defaultInput = name
+        case .setAsPreferredInput:
+            var name: String?
+            if let target = target as? DeviceViewModel {  name = target.device.name }
+            if let target = target as? DeviceUnavailableViewModel { name = target.name }
+            guard let inputName = name else { return }
+            Preferences.standard.preferredInput = inputName
             Preferences.standard.save()
             break
-        case .setAsPresetOutput:
-            guard let name = target?.device.name else { return }
-            Preferences.standard.defaultOutput = name
+        case .setAsPreferredOutput:
+            var name: String?
+            if let target = target as? DeviceViewModel {  name = target.device.name }
+            if let target = target as? DeviceUnavailableViewModel { name = target.name }
+            guard let outputName = name else { return }
+            Preferences.standard.preferredOutput = outputName
             Preferences.standard.save()
             break
-        case .setAsPresetSystem:
-            guard let name = target?.device.name else { return }
-            Preferences.standard.defaultSystem = name
+        case .setAsPreferredSystem:
+            var name: String?
+            if let target = target as? DeviceViewModel {  name = target.device.name }
+            if let target = target as? DeviceUnavailableViewModel { name = target.name }
+            guard let systemName = name else { return }
+            Preferences.standard.preferredSystem = systemName
             Preferences.standard.save()
             break
         case .setVolumeIn(let volume):
-            guard let target = target else { return }
+            guard let target = target as? DeviceViewModel else { return }
             if target.device.canSetVirtualMasterVolume(direction: .recording) {
                 target.device.setVirtualMasterVolume(volume, direction: .recording)
             }
             break
         case .setVolumeOut(let volume):
-            guard let target = target else { return }
+            guard let target = target as? DeviceViewModel else { return }
             if target.device.canSetVirtualMasterVolume(direction: .playback) {
                 target.device.setVirtualMasterVolume(volume, direction: .playback)
             }
             break
         case .togglePassthrough:
             togglePassthrough()
-            break;
+            break
         }
         updateViewModels()
     }
@@ -237,28 +284,28 @@ extension SelectorViewModel: EventSubscriber {
         
         Logger.shared.add("\(hardwareDidChange) \(inputDidChange) \(outputDidChange) \(systemDidChange)")
         
-        // check if we need to reset to our prefered settings
+        // check if we need to reset to our preferred settings
         guard hardwareDidChange else { return }
         scheduleChangeReset()
         
         stopPassthrough()
         
         if inputDidChange {
-            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultInput }).first, let device = AudioDevice.defaultInputDevice() {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.preferredInput }).first, let device = AudioDevice.defaultInputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsInput()
                 }
             }
         }
         if outputDidChange {
-            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultOutput }).first, let device = AudioDevice.defaultOutputDevice() {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.preferredOutput }).first, let device = AudioDevice.defaultOutputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsOutput()
                 }
             }
         }
         if systemDidChange {
-            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.defaultSystem }).first, let device = AudioDevice.defaultSystemOutputDevice() {
+            if let vm = (deviceViewModels.value.filter{ $0.device.name == Preferences.standard.preferredSystem }).first, let device = AudioDevice.defaultSystemOutputDevice() {
                 if vm.device.name != device.name {
                     vm.setAsSystem()
                 }

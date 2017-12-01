@@ -14,17 +14,11 @@ import AMCoreAudio
 
 class DeviceSelectorView: NSView {
     
-    enum SelectorTypes {
-        case input
-        case output
-        case system
-    }
-    
     private var selectorType = SelectorTypes.output
     private var viewModel: DeviceViewModel?
     
     private let activeControl = RadioControl()
-    private let defaultControl = RadioControl()
+    private let preferredControl = RadioControl()
     private let volumeControl = NSSlider()
     private let deviceLabel = LabelView()
     
@@ -39,13 +33,13 @@ class DeviceSelectorView: NSView {
         unsubscribeFromViewModel()
     }
     
-    public func setup(_ viewModel: DeviceViewModel, _ selectorType: DeviceSelectorView.SelectorTypes) -> DeviceSelectorView{
+    public func setup(_ viewModel: DeviceViewModel, _ selectorType: SelectorTypes) -> DeviceSelectorView{
         self.viewModel = viewModel
         self.selectorType = selectorType
         
         swiftyConstraints()
             .attach(activeControl).height(16).width(16).left().top().bottom().stackLeft()
-            .attach(defaultControl).height(16).width(16).left(10).top().bottom().stackLeft()
+            .attach(preferredControl).height(16).width(16).left(10).top().bottom().stackLeft()
             .attach(deviceLabel).height(20).left(10).top().stackLeft()
             .attach(volumeControl).middle().width(120).left(20).top().right()
         
@@ -62,10 +56,10 @@ class DeviceSelectorView: NSView {
         activeControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
         activeControl.isEnabled = viewModel.isPresent
         
-        defaultControl.target = self
-        defaultControl.action = #selector(DeviceSelectorView.selectDefault)
-        defaultControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
-        defaultControl.isEnabled = viewModel.isPresent
+        preferredControl.target = self
+        preferredControl.action = #selector(DeviceSelectorView.selectPreferred)
+        preferredControl.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
+        preferredControl.isEnabled = viewModel.isPresent
         
         volumeControl.target = self
         volumeControl.action = #selector(DeviceSelectorView.changeVolume(_:))
@@ -78,19 +72,19 @@ class DeviceSelectorView: NSView {
         
         if selectorType == .input {
             indicatorAction = viewModel.isInput
-            indicatorDefault = viewModel.isDefaultInput
+            indicatorDefault = viewModel.isPreferredInput
             indicatorVolume = viewModel.volumeIn
             indicatorVolumeActive = viewModel.canChangeVolumeIn
         }
         if selectorType == .output {
             indicatorAction = viewModel.isOutput
-            indicatorDefault = viewModel.isDefaultOutput
+            indicatorDefault = viewModel.isPreferredOutput
             indicatorVolume = viewModel.volumeOut
             indicatorVolumeActive = viewModel.canChangeVolumeOut
         }
         if selectorType == .system {
             indicatorAction = viewModel.isSystem
-            indicatorDefault = viewModel.isDefaultSystem
+            indicatorDefault = viewModel.isPreferredSystem
             indicatorVolume = viewModel.volumeOut
             indicatorVolumeActive = viewModel.canChangeVolumeOut
         }
@@ -103,7 +97,7 @@ class DeviceSelectorView: NSView {
         
         indicatorDefault?.asObservable().subscribe(
             onNext: { [weak self] value in
-                self?.defaultControl.isActive = value
+                self?.preferredControl.isActive = value
             }
             ).disposed(by: disposeBag)
         
@@ -140,17 +134,17 @@ class DeviceSelectorView: NSView {
         }
     }
     
-    @objc func selectDefault(_ sender: AnyObject) {
+    @objc func selectPreferred(_ sender: AnyObject) {
         guard let viewModel = viewModel else { return }
         
         if selectorType == .input {
-            viewModel.setAsPresetInput()
+            viewModel.setAsPreferredInput()
         }
         if selectorType == .output {
-            viewModel.setAsPresetOutput()
+            viewModel.setAsPreferredOutput()
         }
         if selectorType == .system {
-            viewModel.setAsPresetSystem()
+            viewModel.setAsPreferredSystem()
         }
     }
     

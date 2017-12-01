@@ -22,7 +22,7 @@ class SelectorViewController: NSViewController {
     let buttonPassthrough = Control().withText("Pass input to output")
     let logView = NSTextField()
     
-    var disposableViews = [DeviceSelectorView]()
+    var disposableViews = [NSView]()
     var disposeBag = DisposeBag()
     
     let viewModel = SelectorViewModel()
@@ -77,7 +77,7 @@ class SelectorViewController: NSViewController {
         constraints
             .attach(RemarkView().withText("Active"))
                 .height(10).left(25).top(30)
-            .attach(RemarkView().withText("Prefered"))
+            .attach(RemarkView().withText("Preferred"))
                 .height(10).left(55).top(30)
             
             .attach(TitleView().withText("Main in"))
@@ -86,12 +86,12 @@ class SelectorViewController: NSViewController {
                 .left(20).top().right(20).stackTop()
             
             .attach(TitleView().withText("Main out"))
-                .right(20).top(5).stackTop()
+                .height(14).right(20).top(10).stackTop()
             .attach(viewContainerOutput)
                 .left(20).top().right(20).stackTop()
             
             .attach(TitleView().withText("System out"))
-                .height(14).right(20).top(5).stackTop()
+                .height(14).right(20).top(10).stackTop()
             .attach(viewContainerSystem)
                 .left(20).top().right(20).stackTop()
             
@@ -100,10 +100,14 @@ class SelectorViewController: NSViewController {
             .attach(buttonPassthrough)
                 .height(16).left(5).top(20).stackTop().resetStackLeft()
             
-            .attach(logView)
+            #if DEBUG
+                
+            constraints.attach(logView)
                 .height(300).width(600).left(20).right(20).top(20).stackTop()
+                
+            #endif
             
-            .attach(buttonClose)
+            constraints.attach(buttonClose)
                 .top(20).right(20).bottom(20)
         
         
@@ -132,6 +136,25 @@ class SelectorViewController: NSViewController {
                 systemConstraints.attach(systemControl).left().right().top(5).stackTop()
             }
         }
+        
+        if let vm = viewModel.unavalablePreferredInputViewModel {
+            let inputPreferred = DeviceUnavailableSelectorView().setup(vm, .input)
+            disposableViews.append(inputPreferred)
+            inputConstraints.attach(inputPreferred).left().right().top(5).stackTop()
+        }
+        
+        if let vm = viewModel.unavalablePreferredOutputViewModel {
+            let outputPreferred = DeviceUnavailableSelectorView().setup(vm, .output)
+            disposableViews.append(outputPreferred)
+            outputConstraints.attach(outputPreferred).left().right().top(5).stackTop()
+        }
+        
+        if let vm = viewModel.unavalablePreferredSystemViewModel {
+            let systemPreferred = DeviceUnavailableSelectorView().setup(vm, .system)
+            disposableViews.append(systemPreferred)
+            systemConstraints.attach(systemPreferred).left().right().top(5).stackTop()
+        }
+        
         inputConstraints.bottom()
         outputConstraints.bottom()
         systemConstraints.bottom()

@@ -20,9 +20,9 @@ class DeviceViewModel {
     var isInput = Variable(false)
     var isOutput = Variable(false)
     var isSystem = Variable(false)
-    var isDefaultInput = Variable(false)
-    var isDefaultOutput = Variable(false)
-    var isDefaultSystem = Variable(false)
+    var isPreferredInput = Variable(false)
+    var isPreferredOutput = Variable(false)
+    var isPreferredSystem = Variable(false)
     
     var volumeIn = Variable<Float32>(0)
     var volumeOut = Variable<Float32>(0)
@@ -31,7 +31,7 @@ class DeviceViewModel {
     var displayName = Variable("")
     
     var name: String {
-        return (device.isJackConnected(direction: .playback) ?? false) ? "\(device.name) (Headphones)" : device.name
+        return device.name
     }
     
     var isInputDevice: Bool {
@@ -78,22 +78,20 @@ class DeviceViewModel {
         
         let pref = Preferences.standard
         
-        let defaultInput = pref.defaultInput == self.device.name
-        if isDefaultInput.value != defaultInput {
-            isDefaultInput.value = defaultInput
+        let preferredInput = pref.preferredInput == self.device.name
+        if isPreferredInput.value != preferredInput {
+            isPreferredInput.value = preferredInput
         }
         
-        let defaultOutput = pref.defaultOutput == self.device.name
-        if isDefaultOutput.value != defaultOutput {
-            isDefaultOutput.value = defaultOutput
+        let preferredOutput = pref.preferredOutput == self.device.name
+        if isPreferredOutput.value != preferredOutput {
+            isPreferredOutput.value = preferredOutput
         }
         
-        let defaultSystem = pref.defaultSystem == self.device.name
-        if isDefaultSystem.value != defaultSystem {
-            isDefaultSystem.value = defaultSystem
+        let preferredSystem = pref.preferredSystem == self.device.name
+        if isPreferredSystem.value != preferredSystem {
+            isPreferredSystem.value = preferredSystem
         }
-        
-        //volume.value = device.volume
     }
     
     func setAsInput() {
@@ -108,16 +106,16 @@ class DeviceViewModel {
         interfaceActionPublish.onNext(InterfaceAction.setAsSystem)
     }
     
-    func setAsPresetInput() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsPresetInput)
+    func setAsPreferredInput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPreferredInput)
     }
     
-    func setAsPresetOutput() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsPresetOutput)
+    func setAsPreferredOutput() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPreferredOutput)
     }
     
-    func setAsPresetSystem() {
-        interfaceActionPublish.onNext(InterfaceAction.setAsPresetSystem)
+    func setAsPreferredSystem() {
+        interfaceActionPublish.onNext(InterfaceAction.setAsPreferredSystem)
     }
     
     func setVolumeIn(_ volume: Float32) {

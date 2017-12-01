@@ -11,23 +11,23 @@ import Foundation
 class Preferences  {
     static let standard = Preferences()
     
-    var defaultInput = ""
-    var defaultOutput = ""
-    var defaultSystem = ""
+    var preferredInput = ""
+    var preferredOutput = ""
+    var preferredSystem = ""
     
     private init() {
         let userDefaults = UserDefaults.standard
-        defaultInput = userDefaults.string(forKey: "defaultInput") ?? ""
-        defaultOutput = userDefaults.string(forKey: "defaultOutput") ?? ""
-        defaultSystem = userDefaults.string(forKey: "defaultSystem") ?? ""
-        Logger.shared.add("Preferences loading defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
+        preferredInput = userDefaults.string(forKey: "preferredInput") ?? ""
+        preferredOutput = userDefaults.string(forKey: "preferredOutput") ?? ""
+        preferredSystem = userDefaults.string(forKey: "preferredSystem") ?? ""
+        Logger.shared.add("Preferences loading preferredInput=\(preferredInput) preferredOutput=\(preferredOutput) preferredSystem=\(preferredSystem)")
     }
     
     func save() {
         let userDefaults = UserDefaults.standard
-        userDefaults.setValue(defaultInput, forKey: "defaultInput")
-        userDefaults.setValue(defaultOutput, forKey: "defaultOutput")
-        userDefaults.setValue(defaultSystem, forKey: "defaultSystem")
-        Logger.shared.add("Preferences saving defaultInput=\(defaultInput) defaultOutput=\(defaultOutput) defaultSystem=\(defaultSystem)")
+        userDefaults.setValue(preferredInput, forKey: "preferredInput")
+        userDefaults.setValue(preferredOutput, forKey: "preferredOutput")
+        userDefaults.setValue(preferredSystem, forKey: "preferredSystem")
+        Logger.shared.add("Preferences saving preferredInput=\(preferredInput) preferredOutput=\(preferredOutput) preferredSystem=\(preferredSystem)")
     }
 }
