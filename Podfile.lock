@@ -1,8 +1,8 @@
 PODS:
   - AMCoreAudio (3.1.3)
-  - AudioKit (4.0.2):
-    - AudioKit/UI (= 4.0.2)
-  - AudioKit/UI (4.0.2)
+  - AudioKit (4.0.4):
+    - AudioKit/UI (= 4.0.4)
+  - AudioKit/UI (4.0.4)
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
@@ -26,7 +26,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AMCoreAudio: 10b526498c9cd55201a674ef17bcd657932704de
-  AudioKit: 97b73bda168c47191a9ba310eea00f9c7b5662d1
+  AudioKit: 647145c0462dc9dc8a8582998cd6db5f2e1ea848
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SwiftyConstraints: db70cd0e98d5310e38685278e701eb85c1a1d44c

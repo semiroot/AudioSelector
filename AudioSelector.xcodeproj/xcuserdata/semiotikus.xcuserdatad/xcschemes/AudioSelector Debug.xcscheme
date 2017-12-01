@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778A909E33D637573295488E916DC4C"
-               BuildableName = "RxCocoa.framework"
-               BlueprintName = "RxCocoa"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "649351F61F3E2AC2000AAEA4"
+               BuildableName = "AudioSelector.app"
+               BlueprintName = "AudioSelector"
+               ReferencedContainer = "container:AudioSelector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,7 +29,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "649352071F3E2AC2000AAEA4"
+               BuildableName = "AudioSelectorTests.xctest"
+               BlueprintName = "AudioSelectorTests"
+               ReferencedContainer = "container:AudioSelector.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "649351F61F3E2AC2000AAEA4"
+            BuildableName = "AudioSelector.app"
+            BlueprintName = "AudioSelector"
+            ReferencedContainer = "container:AudioSelector.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -44,15 +63,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1778A909E33D637573295488E916DC4C"
-            BuildableName = "RxCocoa.framework"
-            BlueprintName = "RxCocoa"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "649351F61F3E2AC2000AAEA4"
+            BuildableName = "AudioSelector.app"
+            BlueprintName = "AudioSelector"
+            ReferencedContainer = "container:AudioSelector.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -62,6 +82,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "649351F61F3E2AC2000AAEA4"
+            BuildableName = "AudioSelector.app"
+            BlueprintName = "AudioSelector"
+            ReferencedContainer = "container:AudioSelector.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
