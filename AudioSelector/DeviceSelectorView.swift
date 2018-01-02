@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import SwiftyConstraints
+import SnapKit
 import RxSwift
 import AMCoreAudio
 
@@ -37,11 +37,40 @@ class DeviceSelectorView: NSView {
         self.viewModel = viewModel
         self.selectorType = selectorType
         
-        swiftyConstraints()
-            .attach(activeControl).height(16).width(16).left().top().bottom().stackLeft()
-            .attach(preferredControl).height(16).width(16).left(10).top().bottom().stackLeft()
-            .attach(deviceLabel).height(20).left(10).top().stackLeft()
-            .attach(volumeControl).middle().width(120).left(20).top().right()
+        addSubview(activeControl)
+        addSubview(preferredControl)
+        addSubview(deviceLabel)
+        addSubview(volumeControl)
+        
+        activeControl.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(16)
+            make.height.equalTo(16)
+            make.left.equalTo(self)
+            make.top.equalTo(self)
+            make.bottom.equalTo(self)
+        }
+        
+        preferredControl.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+            make.left.equalTo(activeControl.snp.right).offset(10)
+            make.top.equalTo(self)
+            make.bottom.equalTo(self)
+        }
+        
+        deviceLabel.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(20)
+            make.left.equalTo(preferredControl.snp.right).offset(10)
+            make.top.equalTo(self)
+        }
+        
+        volumeControl.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self)
+            make.width.equalTo(120)
+            make.left.equalTo(deviceLabel.snp.right).offset(10)
+            make.right.equalTo(self)
+            make.top.equalTo(self)
+        }
         
         subscribeToViewModel()
         

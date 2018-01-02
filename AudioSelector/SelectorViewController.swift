@@ -9,7 +9,7 @@
 import Cocoa
 import RxSwift
 import RxCocoa
-import SwiftyConstraints
+import SnapKit
 import AudioKit
 
 class SelectorViewController: NSViewController {
@@ -55,7 +55,6 @@ class SelectorViewController: NSViewController {
     }
     
     func createLayout() {
-        let constraints = self.view.swiftyConstraints()
         
         buttonClose.target = self
         buttonClose.action = #selector(SelectorViewController.doCloseApp)
@@ -74,90 +73,202 @@ class SelectorViewController: NSViewController {
             }
         ).disposed(by: disposeBag)
         
-        constraints
-            .attach(RemarkView().withText("Active"))
-                .height(10).left(25).top(30)
-            .attach(RemarkView().withText("Preferred"))
-                .height(10).left(55).top(30)
-            
-            .attach(TitleView().withText("Main in"))
-                .height(14).right(20).top(30).stackTop()
-            .attach(viewContainerInput)
-                .left(20).top().right(20).stackTop()
-            
-            .attach(TitleView().withText("Main out"))
-                .height(14).right(20).top(10).stackTop()
-            .attach(viewContainerOutput)
-                .left(20).top().right(20).stackTop()
-            
-            .attach(TitleView().withText("System out"))
-                .height(14).right(20).top(10).stackTop()
-            .attach(viewContainerSystem)
-                .left(20).top().right(20).stackTop()
-            
-            .attach(checkboxPassthrough)
-                .height(16).width(16).left(20).top(20).stackLeft()
-            .attach(buttonPassthrough)
-                .height(16).left(5).top(20).stackTop().resetStackLeft()
-            
-            #if DEBUG
-                
-            constraints.attach(logView)
-                .height(300).width(600).left(20).right(20).top(20).stackTop()
-                
-            #endif
-            
-            constraints.attach(buttonClose)
-                .top(20).right(20).bottom(20)
         
+        let labelActive = RemarkView().withText("Active")
+        self.view.addSubview(labelActive)
+        labelActive.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(10)
+            make.left.equalTo(self.view).offset(25)
+            make.top.equalTo(self.view).offset(30)
+        }
         
+        let labelPreferred = RemarkView().withText("Preferred")
+        self.view.addSubview(labelPreferred)
+        labelPreferred.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(10)
+            make.left.equalTo(self.view).offset(55)
+            make.top.equalTo(self.view).offset(30)
+        }
+        
+        let labelIn = TitleView().withText("Input")
+        self.view.addSubview(labelIn)
+        labelIn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(14)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(self.view).offset(30)
+        }
+        
+        self.view.addSubview(viewContainerInput)
+        viewContainerInput.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(20)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(labelIn.snp.bottom)
+        }
+        
+        let labelOut = TitleView().withText("Output")
+        self.view.addSubview(labelOut)
+        labelOut.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(14)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(viewContainerInput.snp.bottom).offset(30)
+        }
+        
+        self.view.addSubview(viewContainerOutput)
+        viewContainerOutput.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(20)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(labelOut.snp.bottom)
+        }
+
+        let labelSystem = TitleView().withText("System")
+        self.view.addSubview(labelSystem)
+        labelSystem.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(14)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(viewContainerOutput.snp.bottom).offset(30)
+        }
+        
+        self.view.addSubview(viewContainerSystem)
+        viewContainerSystem.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(20)
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(labelSystem.snp.bottom)
+        }
+        
+        self.view.addSubview(checkboxPassthrough)
+        checkboxPassthrough.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+            make.left.equalTo(self.view).offset(20)
+            make.top.equalTo(viewContainerSystem.snp.bottom).offset(20)
+        }
+        
+        self.view.addSubview(buttonPassthrough)
+        buttonPassthrough.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(16)
+            make.left.equalTo(checkboxPassthrough.snp.right).offset(5)
+            make.top.equalTo(checkboxPassthrough)
+        }
+        
+        var preView: NSView = buttonPassthrough
+        
+        #if DEBUG
+            self.view.addSubview(logView)
+            preView = logView
+            logView.snp.makeConstraints { (make) -> Void in
+                make.height.equalTo(300)
+                make.width.equalTo(600)
+                make.left.equalTo(self.view).offset(20)
+                make.right.equalTo(self.view).offset(-20)
+                make.top.equalTo(buttonPassthrough.snp.bottom).offset(20)
+            }
+        #endif
+        
+        self.view.addSubview(buttonClose)
+        buttonClose.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(self.view).offset(-20)
+            make.top.equalTo(preView.snp.bottom).offset(20)
+            make.bottom.equalTo(self.view).offset(-20)
+        }
     }
     
     func populateLayout() {
         unpopulateLayout()
         
-        let inputConstraints = viewContainerInput.swiftyConstraints()
-        let outputConstraints = viewContainerOutput.swiftyConstraints()
-        let systemConstraints = viewContainerSystem.swiftyConstraints()
+        var previousInputEdge = viewContainerInput.snp.top
+        var previousInputItem : NSView?
+        var previousOutputEdge = viewContainerOutput.snp.top
+        var previousOutputItem : NSView?
+        var previousSystemEdge = viewContainerSystem.snp.top
+        var previousSystemItem : NSView?
         
         for deviceViewModel in viewModel.deviceViewModels.value {
             if deviceViewModel.isInputDevice {
                 let inputControl = DeviceSelectorView().setup(deviceViewModel, .input)
                 disposableViews.append(inputControl)
-                inputConstraints.attach(inputControl).left().right().top(5).stackTop()
+                viewContainerInput.addSubview(inputControl)
+                inputControl.snp.makeConstraints { (make) -> Void in
+                    make.left.equalTo(viewContainerInput)
+                    make.right.equalTo(viewContainerInput)
+                    make.top.equalTo(previousInputEdge).offset(5)
+                }
+                previousInputItem = inputControl
+                previousInputEdge = inputControl.snp.bottom
             }
             if deviceViewModel.isOutputDevice {
                 let outputControl = DeviceSelectorView().setup(deviceViewModel, .output)
                 disposableViews.append(outputControl)
-                outputConstraints.attach(outputControl).left().right().top(5).stackTop()
+                viewContainerOutput.addSubview(outputControl)
+                outputControl.snp.makeConstraints { (make) -> Void in
+                    make.left.equalTo(viewContainerOutput)
+                    make.right.equalTo(viewContainerOutput)
+                    make.top.equalTo(previousOutputEdge).offset(5)
+                }
+                previousOutputItem = outputControl
+                previousOutputEdge = outputControl.snp.bottom
                 
                 let systemControl = DeviceSelectorView().setup(deviceViewModel, .system)
                 disposableViews.append(systemControl)
-                systemConstraints.attach(systemControl).left().right().top(5).stackTop()
+                viewContainerSystem.addSubview(systemControl)
+                systemControl.snp.makeConstraints { (make) -> Void in
+                    make.left.equalTo(viewContainerSystem)
+                    make.right.equalTo(viewContainerSystem)
+                    make.top.equalTo(previousSystemEdge).offset(5)
+                }
+                previousSystemItem = systemControl
+                previousSystemEdge = systemControl.snp.bottom
             }
         }
         
         if let vm = viewModel.unavalablePreferredInputViewModel {
             let inputPreferred = DeviceUnavailableSelectorView().setup(vm, .input)
             disposableViews.append(inputPreferred)
-            inputConstraints.attach(inputPreferred).left().right().top(5).stackTop()
+            viewContainerInput.addSubview(inputPreferred)
+            inputPreferred.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(viewContainerInput)
+                make.right.equalTo(viewContainerInput)
+                make.top.equalTo(previousInputEdge).offset(5)
+            }
+            previousInputItem = inputPreferred
+            previousInputEdge = inputPreferred.snp.bottom
         }
         
         if let vm = viewModel.unavalablePreferredOutputViewModel {
             let outputPreferred = DeviceUnavailableSelectorView().setup(vm, .output)
             disposableViews.append(outputPreferred)
-            outputConstraints.attach(outputPreferred).left().right().top(5).stackTop()
+            viewContainerOutput.addSubview(outputPreferred)
+            outputPreferred.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(viewContainerOutput)
+                make.right.equalTo(viewContainerOutput)
+                make.top.equalTo(previousOutputEdge).offset(5)
+            }
+            previousOutputItem = outputPreferred
+            previousOutputEdge = outputPreferred.snp.bottom
         }
         
         if let vm = viewModel.unavalablePreferredSystemViewModel {
             let systemPreferred = DeviceUnavailableSelectorView().setup(vm, .system)
             disposableViews.append(systemPreferred)
-            systemConstraints.attach(systemPreferred).left().right().top(5).stackTop()
+            viewContainerSystem.addSubview(systemPreferred)
+            systemPreferred.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(viewContainerSystem)
+                make.right.equalTo(viewContainerSystem)
+                make.top.equalTo(previousSystemEdge).offset(5)
+            }
+            previousSystemItem = systemPreferred
+            previousSystemEdge = systemPreferred.snp.bottom
         }
         
-        inputConstraints.bottom()
-        outputConstraints.bottom()
-        systemConstraints.bottom()
+        
+        previousInputItem?.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(viewContainerInput)
+        }
+        previousOutputItem?.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(viewContainerOutput)
+        }
+        previousSystemItem?.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(viewContainerSystem)
+        }
     }
     
     func unpopulateLayout() {

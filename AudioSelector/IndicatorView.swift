@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import SwiftyConstraints
+import SnapKit
 
 class IndicatorView: CircleView {
     
@@ -27,11 +27,12 @@ class IndicatorView: CircleView {
         
         bulletView.layer?.borderWidth = 0
         
-        swiftyConstraints()
-            .attach(bulletView)
-            .widthOfSuperview(0.6, 0)
-            .heightOfSuperview(0.6, 0)
-            .center().middle()
+        addSubview(bulletView)
+        bulletView.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(self).multipliedBy(0.6)
+            make.height.equalTo(self).multipliedBy(0.6)
+            make.center.equalTo(self)
+        }
         
         isActive = false
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0910"
+   LastUpgradeVersion = "0920"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1179EBCA2A1F37A2937C007C7223E66A"
+               BlueprintIdentifier = "B0C0EF53095D473368C82C10DA2930BF"
                BuildableName = "Pods_AudioSelector.framework"
                BlueprintName = "Pods-AudioSelector"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1179EBCA2A1F37A2937C007C7223E66A"
+            BlueprintIdentifier = "B0C0EF53095D473368C82C10DA2930BF"
             BuildableName = "Pods_AudioSelector.framework"
             BlueprintName = "Pods-AudioSelector"
             ReferencedContainer = "container:Pods.xcodeproj">
