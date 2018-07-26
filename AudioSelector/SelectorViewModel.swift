@@ -217,14 +217,13 @@ extension SelectorViewModel {
     }
     
     private func startPassthrough() {
-        passthroughActive.value = true
         passthroughInput = AKMicrophone() // microphone will point to what ever is the default input device
         AudioKit.output = passthroughInput
-        AudioKit.start()
+        passthroughActive.value = (try? AudioKit.start()) != nil
     }
     
     private func stopPassthrough() {
-        AudioKit.stop()
+        try? AudioKit.stop()
         AudioKit.output = nil
         AudioKit.disconnectAllInputs()
         passthroughInput?.stop()

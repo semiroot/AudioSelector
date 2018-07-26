@@ -13,8 +13,8 @@ class RemarkView: LabelView {
     override func setup() {
         super.setup()
         self.font = NSFont.labelFont(ofSize: 9)
-        wantsLayer = true
-        self.boundsRotation = -45
+        self.wantsLayer = true
+        self.rotate(byDegrees: -45)
     }
     
 }

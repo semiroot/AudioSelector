@@ -74,20 +74,20 @@ class SelectorViewController: NSViewController {
         ).disposed(by: disposeBag)
         
         
-        let labelActive = RemarkView().withText("Active")
+        let labelActive = RemarkView().withText("  Active")
         self.view.addSubview(labelActive)
         labelActive.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(10)
-            make.left.equalTo(self.view).offset(25)
-            make.top.equalTo(self.view).offset(30)
+            make.left.equalTo(self.view).offset(22)
+            make.top.equalTo(self.view).offset(32)
         }
         
-        let labelPreferred = RemarkView().withText("Preferred")
+        let labelPreferred = RemarkView().withText("  Preferred")
         self.view.addSubview(labelPreferred)
         labelPreferred.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(10)
-            make.left.equalTo(self.view).offset(55)
-            make.top.equalTo(self.view).offset(30)
+            make.left.equalTo(self.view).offset(52)
+            make.top.equalTo(self.view).offset(32)
         }
         
         let labelIn = TitleView().withText("Input")
@@ -110,7 +110,7 @@ class SelectorViewController: NSViewController {
         labelOut.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(14)
             make.right.equalTo(self.view).offset(-20)
-            make.top.equalTo(viewContainerInput.snp.bottom).offset(30)
+            make.top.equalTo(viewContainerInput.snp.bottom).offset(25)
         }
         
         self.view.addSubview(viewContainerOutput)
@@ -125,7 +125,7 @@ class SelectorViewController: NSViewController {
         labelSystem.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(14)
             make.right.equalTo(self.view).offset(-20)
-            make.top.equalTo(viewContainerOutput.snp.bottom).offset(30)
+            make.top.equalTo(viewContainerOutput.snp.bottom).offset(25)
         }
         
         self.view.addSubview(viewContainerSystem)
