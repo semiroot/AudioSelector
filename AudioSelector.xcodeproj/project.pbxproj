@@ -31,7 +31,6 @@
 		64D9E6F81FD198ED00911452 /* SelectorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9E6F71FD198ED00911452 /* SelectorTypes.swift */; };
 		64D9E6FA1FD1A3B700911452 /* DeviceUnavailableSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9E6F91FD1A3B700911452 /* DeviceUnavailableSelectorView.swift */; };
 		64FC29AC1F3F72A3001D96E7 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */; };
-		8B38FB6C8C500F4F684338F0 /* Pods_AudioSelector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76E6362773793AFC18A163 /* Pods_AudioSelector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,14 +71,10 @@
 		64BBA5AA1F408E2F00EBCC50 /* InterfaceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceRequest.swift; sourceTree = "<group>"; };
 		64BBA5AC1F409A0300EBCC50 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		64BCCA501F3F0E4000BE7F9E /* SelectorPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorPopover.swift; sourceTree = "<group>"; };
-		64BCCA531F3F1B5300BE7F9E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		64D9E6F51FD1982F00911452 /* DeviceUnavailableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUnavailableViewModel.swift; sourceTree = "<group>"; };
 		64D9E6F71FD198ED00911452 /* SelectorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorTypes.swift; sourceTree = "<group>"; };
 		64D9E6F91FD1A3B700911452 /* DeviceUnavailableSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUnavailableSelectorView.swift; sourceTree = "<group>"; };
 		64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
-		98E4D821E6B67C464A146B96 /* Pods-AudioSelector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioSelector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector.debug.xcconfig"; sourceTree = "<group>"; };
-		BF8A8C2143228488C5CA6471 /* Pods-AudioSelector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioSelector.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector.release.xcconfig"; sourceTree = "<group>"; };
-		ED76E6362773793AFC18A163 /* Pods_AudioSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B38FB6C8C500F4F684338F0 /* Pods_AudioSelector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,25 +95,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4BDB7A20D803F960D21C8CC7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				98E4D821E6B67C464A146B96 /* Pods-AudioSelector.debug.xcconfig */,
-				BF8A8C2143228488C5CA6471 /* Pods-AudioSelector.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		649351EE1F3E2AC2000AAEA4 = {
 			isa = PBXGroup;
 			children = (
 				640472661FD1F55700C81E2C /* README.md */,
-				64BCCA521F3F1B1100BE7F9E /* Cocoapods */,
 				649351F91F3E2AC2000AAEA4 /* AudioSelector */,
 				6493520B1F3E2AC2000AAEA4 /* AudioSelectorTests */,
 				649351F81F3E2AC2000AAEA4 /* Products */,
-				4BDB7A20D803F960D21C8CC7 /* Pods */,
-				AA6FBFBC1295BC3868616017 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,14 +148,6 @@
 				640472681FD20B4700C81E2C /* Source */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		64BCCA521F3F1B1100BE7F9E /* Cocoapods */ = {
-			isa = PBXGroup;
-			children = (
-				64BCCA531F3F1B5300BE7F9E /* Podfile */,
-			);
-			name = Cocoapods;
 			sourceTree = "<group>";
 		};
 		64E54F221F42346D008AF460 /* Views */ = {
@@ -246,14 +220,6 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		AA6FBFBC1295BC3868616017 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ED76E6362773793AFC18A163 /* Pods_AudioSelector.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,11 +227,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 649352111F3E2AC2000AAEA4 /* Build configuration list for PBXNativeTarget "AudioSelector" */;
 			buildPhases = (
-				07FDB212F1311530203C045B /* [CP] Check Pods Manifest.lock */,
 				649351F31F3E2AC2000AAEA4 /* Sources */,
 				649351F41F3E2AC2000AAEA4 /* Frameworks */,
 				649351F51F3E2AC2000AAEA4 /* Resources */,
-				CAEE6ACD8F767EA86056568E /* [CP] Embed Pods Frameworks */,
 				6404726B1FD2176E00C81E2C /* ShellScript */,
 			);
 			buildRules = (
@@ -325,6 +289,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -359,24 +324,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07FDB212F1311530203C045B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AudioSelector-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6404726B1FD2176E00C81E2C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,31 +335,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if hash /usr/libexec/PlistBuddy 2>/dev/null; then\n    buildNumber=$(date +%y%m%d.%H%M.)$(git -C ${SRCROOT} rev-list --count HEAD)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" \"${SRCROOT}/AudioSelector/Info.plist\"\nelse\n    echo \"Please install PlistBuddy for the build number to be calculated automatically\"\nfi";
-		};
-		CAEE6ACD8F767EA86056568E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AMCoreAudio/AMCoreAudio.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMCoreAudio.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioSelector/Pods-AudioSelector-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if hash /usr/libexec/PlistBuddy 2>/dev/null; then\n    buildNumber=$(date +%y%m%d.%H%M.)$(git -C ${SRCROOT} rev-list --count HEAD)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" \"${SRCROOT}/AudioSelector/Info.plist\"\nelse\n    echo \"Please install PlistBuddy for the build number to be calculated automatically\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -587,7 +510,6 @@
 		};
 		649352121F3E2AC2000AAEA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98E4D821E6B67C464A146B96 /* Pods-AudioSelector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -606,7 +528,6 @@
 		};
 		649352131F3E2AC2000AAEA4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF8A8C2143228488C5CA6471 /* Pods-AudioSelector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";

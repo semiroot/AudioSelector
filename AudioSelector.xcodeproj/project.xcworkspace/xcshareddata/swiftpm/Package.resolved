@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AMCoreAudio",
+        "repositoryURL": "https://github.com/rnine/AMCoreAudio.git",
+        "state": {
+          "branch": "master",
+          "revision": "92c2b2c858d602a7815e599bd763c33f157a5273",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
