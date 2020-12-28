@@ -4,6 +4,8 @@ AudioSelector is a [free](./LICENSE.md) menu bar application, helping with manag
 
 You can download the newest version in the **Release** section.
 
+Note: An optimized version for macOS 11 (Big Sur) is in the making...
+
 ## Functionality
 
 ![AudioSelector Screenshot](./AudioSelector/Resources/Screenshot.png "AudioSelector Screenshot")
