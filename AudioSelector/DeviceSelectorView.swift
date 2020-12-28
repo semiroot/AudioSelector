@@ -42,12 +42,17 @@ class DeviceSelectorView: NSView {
         addSubview(deviceLabel)
         addSubview(volumeControl)
         
+        self.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(22)
+        }
+        
         activeControl.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(16)
             make.height.equalTo(16)
             make.left.equalTo(self)
             make.top.equalTo(self)
             make.bottom.equalTo(self)
+            make.centerY.equalTo(self)
         }
         
         preferredControl.snp.makeConstraints { (make) -> Void in
@@ -56,17 +61,20 @@ class DeviceSelectorView: NSView {
             make.left.equalTo(activeControl.snp.right).offset(10)
             make.top.equalTo(self)
             make.bottom.equalTo(self)
+            make.centerY.equalTo(self)
+
         }
         
         deviceLabel.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(20)
             make.left.equalTo(preferredControl.snp.right).offset(10)
-            make.top.equalTo(self)
+            make.top.equalTo(self).offset(3)
+            make.bottom.equalTo(self)
         }
         
         volumeControl.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(self)
-            make.width.equalTo(120)
+            make.width.equalTo(200)
+            make.height.equalTo(22)
             make.left.equalTo(deviceLabel.snp.right).offset(10)
             make.right.equalTo(self)
             make.top.equalTo(self)
