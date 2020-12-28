@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,11 @@
 		64D9E6F81FD198ED00911452 /* SelectorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9E6F71FD198ED00911452 /* SelectorTypes.swift */; };
 		64D9E6FA1FD1A3B700911452 /* DeviceUnavailableSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9E6F91FD1A3B700911452 /* DeviceUnavailableSelectorView.swift */; };
 		64FC29AC1F3F72A3001D96E7 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FC29AB1F3F72A3001D96E7 /* DeviceViewModel.swift */; };
+		D77432392599E817004A56A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D77432382599E817004A56A5 /* SnapKit */; };
+		D77432422599E95F004A56A5 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D77432412599E95F004A56A5 /* RxCocoa */; };
+		D77432442599E95F004A56A5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D77432432599E95F004A56A5 /* RxSwift */; };
+		D77432492599E99C004A56A5 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = D77432482599E99C004A56A5 /* AudioKit */; };
+		D774324E2599E9B7004A56A5 /* AMCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = D774324D2599E9B7004A56A5 /* AMCoreAudio */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77432442599E95F004A56A5 /* RxSwift in Frameworks */,
+				D77432422599E95F004A56A5 /* RxCocoa in Frameworks */,
+				D77432492599E99C004A56A5 /* AudioKit in Frameworks */,
+				D774324E2599E9B7004A56A5 /* AMCoreAudio in Frameworks */,
+				D77432392599E817004A56A5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +247,13 @@
 			dependencies = (
 			);
 			name = AudioSelector;
+			packageProductDependencies = (
+				D77432382599E817004A56A5 /* SnapKit */,
+				D77432412599E95F004A56A5 /* RxCocoa */,
+				D77432432599E95F004A56A5 /* RxSwift */,
+				D77432482599E99C004A56A5 /* AudioKit */,
+				D774324D2599E9B7004A56A5 /* AMCoreAudio */,
+			);
 			productName = AudioSelector;
 			productReference = 649351F71F3E2AC2000AAEA4 /* AudioSelector.app */;
 			productType = "com.apple.product-type.application";
@@ -294,6 +311,12 @@
 				Base,
 			);
 			mainGroup = 649351EE1F3E2AC2000AAEA4;
+			packageReferences = (
+				D77432372599E817004A56A5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D77432402599E95F004A56A5 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D77432472599E99C004A56A5 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				D774324C2599E9B7004A56A5 /* XCRemoteSwiftPackageReference "AMCoreAudio" */,
+			);
 			productRefGroup = 649351F81F3E2AC2000AAEA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -447,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -500,10 +523,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 			};
 			name = Release;
@@ -517,7 +541,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.audioselector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -535,7 +562,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelector/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.audioselector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -552,7 +582,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelectorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.geiser.hansmartin.AudioSelectorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -569,7 +603,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3EN6CLP3WA;
 				INFOPLIST_FILE = AudioSelectorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.geiser.hansmartin.AudioSelectorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -609,6 +647,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D77432372599E817004A56A5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		D77432402599E95F004A56A5 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		D77432472599E99C004A56A5 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				branch = "v5-main";
+				kind = branch;
+			};
+		};
+		D774324C2599E9B7004A56A5 /* XCRemoteSwiftPackageReference "AMCoreAudio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rnine/AMCoreAudio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D77432382599E817004A56A5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77432372599E817004A56A5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D77432412599E95F004A56A5 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77432402599E95F004A56A5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		D77432432599E95F004A56A5 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77432402599E95F004A56A5 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		D77432482599E99C004A56A5 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77432472599E99C004A56A5 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		D774324D2599E9B7004A56A5 /* AMCoreAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D774324C2599E9B7004A56A5 /* XCRemoteSwiftPackageReference "AMCoreAudio" */;
+			productName = AMCoreAudio;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 649351EF1F3E2AC2000AAEA4 /* Project object */;
 }
