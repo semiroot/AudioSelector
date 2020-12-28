@@ -17,13 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         if let button = menuItem.button {
-            button.image = NSImage(named: NSImage.Name(rawValue: "MenuIcon"))
+            button.image = NSImage(named: NSImage.Name("MenuIcon"))
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
         
         popover.contentViewController =
-            NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-                .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectorViewController"))
+            NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+            .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SelectorViewController"))
             as! SelectorViewController
     }
 

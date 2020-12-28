@@ -28,7 +28,7 @@ class SelectorViewModel {
     fileprivate var systemDidChange = false
     fileprivate var hardwareDidChange = false
     
-    fileprivate var passthroughInput: AKMicrophone?
+    //fileprivate var passthroughInput: AKMicrophone?
     
     init() {
         NotificationCenter.defaultCenter.subscribe(self, eventType: AudioHardwareEvent.self, dispatchQueue: DispatchQueue.main)
@@ -217,18 +217,22 @@ extension SelectorViewModel {
     }
     
     private func startPassthrough() {
+        /*
         passthroughInput = AKMicrophone() // microphone will point to what ever is the default input device
         AudioKit.output = passthroughInput
         passthroughActive.value = (try? AudioKit.start()) != nil
+ */
     }
     
     private func stopPassthrough() {
+        /*
         try? AudioKit.stop()
         AudioKit.output = nil
         AudioKit.disconnectAllInputs()
         passthroughInput?.stop()
         passthroughInput = nil
         passthroughActive.value = false
+ */
     }
 }
 // MARK: - Implementation of AMCoreAudio EventSubscriber

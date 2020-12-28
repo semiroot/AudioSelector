@@ -61,6 +61,7 @@ class SelectorViewController: NSViewController {
         
         checkboxPassthrough.target = self
         checkboxPassthrough.action = #selector(SelectorViewController.togglePassthrough)
+        checkboxPassthrough.isEnabled = false
         
         buttonPassthrough.target = self
         buttonPassthrough.action = #selector(SelectorViewController.togglePassthrough)
