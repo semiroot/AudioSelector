@@ -15,7 +15,16 @@
         "repositoryURL": "https://github.com/AudioKit/AudioKit.git",
         "state": {
           "branch": "v5-main",
-          "revision": "c91038eb0fbb1451f4cd538bcdc025017e2148ca",
+          "revision": "4750745817bf5ec3ba2355c6f109fcf4751952ee",
+          "version": null
+        }
+      },
+      {
+        "package": "CustomButton",
+        "repositoryURL": "https://github.com/semiroot/CustomButton.git",
+        "state": {
+          "branch": "master",
+          "revision": "e0d3f6c1828070822d815ca011a5a64efbb4dcc3",
           "version": null
         }
       },

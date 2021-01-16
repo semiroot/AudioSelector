@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -660,10 +659,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Selector View Controller-->
+        <!--Main Controller-->
         <scene sceneID="V7B-np-Hxz">
             <objects>
-                <viewController storyboardIdentifier="SelectorViewController" id="Kgs-JB-eKt" customClass="SelectorViewController" customModule="AudioSelector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectorViewController" id="Kgs-JB-eKt" customClass="MainController" customModule="AudioSelector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ntO-Ry-LNg">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -671,7 +670,7 @@
                 </viewController>
                 <customObject id="frB-js-Dhn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="255"/>
+            <point key="canvasLocation" x="75" y="187"/>
         </scene>
     </scenes>
 </document>

@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let menuItem = NSStatusBar.system.statusItem(withLength: -2)
-    let popover = SelectorPopover()
+    let popover = PopoverWindow()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -24,7 +24,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController =
             NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
             .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SelectorViewController"))
-            as! SelectorViewController
+            as! MainController
+        
+        _ = Hub.requests.subscribe(
+            onNext: { [weak self] request in
+                switch request {
+                    case .updateAppIcon(let isFavorite):
+                        guard let button = self!.menuItem.button else { return }
+                        if isFavorite {
+                            button.image = NSImage(named: NSImage.Name("MenuIconColor"))
+                        } else {
+                            button.image = NSImage(named: NSImage.Name("MenuIcon"))
+                        }
+                        break
+                    default: break
+                }
+            }
+        )
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { }
